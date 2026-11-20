@@ -40,6 +40,7 @@ export interface NavItem {
 }
 
 export const ZOEROBO_IMAGES = {
+  logo: '/assets/aistudio/image_c61b1d4d.png',
   cleanroomLab:
     'https://lh3.googleusercontent.com/aida-public/AB6AXuDmS-rprvpHek9qeVy-XO-5dofkCqB6LNFmO1pRJOjGogVTkkm1ydTUd9XQfNRTDxK8n3yTfxTZMoR7s2RXBhRR7sFt-N5F80p1IUlxftiq79FNnyCZhT5EYxbBDQ2AWdoWQwWWvK4sZpcL4ZJE-dwN_QLhnm_c8WCJM_VfR6wUfCMUiYD3W2zNyOEXHM7Q8xoEUSHwjL6DvV_7I7fSUP3jXVLeLEdSZUWx-eSLTr4Y',
   workbenchRig:

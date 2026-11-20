@@ -20,16 +20,16 @@ import { ResearchRecord } from '../../data/zoerobo.data';
         <button
           type="button"
           (click)="closed.emit()"
-          class="fixed inset-0 bg-on-surface/50 backdrop-blur-sm cursor-default"
+          class="fixed inset-0 bg-on-surface/40 cursor-default"
           aria-label="Close paper dialog"
         ></button>
         <div
-          class="relative z-10 w-full max-w-2xl bg-canvas-pure rounded-xl shadow-[0_20px_25px_-5px_rgba(15,23,42,0.14),0_0_0_1px_#E2E8F0] overflow-hidden max-h-[90vh] flex flex-col"
+          class="relative z-10 w-full max-w-2xl bg-canvas-pure border border-border-active rounded-[4px] overflow-hidden max-h-[90vh] flex flex-col"
         >
           <!-- Modal Header -->
           <div class="px-6 py-4 bg-canvas-subtle border-b border-border-grid flex items-center justify-between gap-4">
-            <div class="flex items-center gap-2 font-mono text-[11px]">
-              <span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-semibold">
+            <div class="flex flex-wrap items-center gap-2 font-mono text-[10px]">
+              <span class="px-2 py-0.5 rounded-[2px] bg-primary-container text-on-primary-container border border-primary/30 font-semibold">
                 {{ paper.domainLabel }}
               </span>
               <span class="text-outline">{{ paper.refCode }}</span>
@@ -37,21 +37,21 @@ import { ResearchRecord } from '../../data/zoerobo.data';
             <button
               type="button"
               (click)="closed.emit()"
-              class="w-8 h-8 rounded-lg hover:bg-canvas-muted text-on-surface-variant flex items-center justify-center transition-colors cursor-pointer"
+              class="w-8 h-8 rounded-[2px] border border-border-grid bg-canvas-pure hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors cursor-pointer"
               aria-label="Close paper viewer"
             >
-              <mat-icon class="text-[20px]">close</mat-icon>
+              <mat-icon class="text-[18px]">close</mat-icon>
             </button>
           </div>
 
           <!-- Modal Body -->
           <div class="p-6 overflow-y-auto space-y-5">
             <div>
-              <h2 class="font-display text-[26px] leading-tight font-bold text-on-surface">
+              <h2 class="font-display text-[30px] leading-tight font-bold uppercase text-on-surface">
                 {{ paper.title }}
               </h2>
               <div class="mt-2 flex flex-wrap items-center gap-3 font-mono text-[11px] text-outline">
-                <span>Authored by {{ paper.author }}</span>
+                <span>AUTHOR: {{ paper.author.toUpperCase() }}</span>
                 <span>·</span>
                 <span>{{ paper.readTime }}</span>
               </div>
@@ -60,7 +60,7 @@ import { ResearchRecord } from '../../data/zoerobo.data';
             <!-- Key Benchmark Metrics -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
               @for (metric of paper.keyMetrics; track metric.label) {
-                <div class="p-3 rounded-lg bg-surface-container-low border border-border-grid/60">
+                <div class="p-3 rounded-[2px] bg-surface-container border border-border-grid">
                   <div class="font-mono text-[10px] uppercase tracking-wider text-outline">
                     {{ metric.label }}
                   </div>
@@ -81,7 +81,7 @@ import { ResearchRecord } from '../../data/zoerobo.data';
             <!-- Tags -->
             <div class="flex flex-wrap gap-2 pt-2">
               @for (tag of paper.tags; track tag) {
-                <span class="px-2.5 py-1 rounded bg-canvas-muted text-on-surface font-mono text-[11px]">
+                <span class="px-2.5 py-1 rounded-[2px] bg-canvas-muted border border-border-grid text-on-surface font-mono text-[11px]">
                   {{ tag }}
                 </span>
               }
@@ -95,7 +95,7 @@ import { ResearchRecord } from '../../data/zoerobo.data';
             <button
               type="button"
               (click)="closed.emit()"
-              class="px-4 py-2 rounded bg-canvas-pure border border-border-grid text-on-surface font-mono text-[12px] uppercase tracking-wider hover:bg-canvas-muted transition-colors cursor-pointer"
+              class="px-4 py-2 rounded-[2px] bg-canvas-pure border border-border-active text-on-surface font-mono text-[11px] uppercase tracking-wider hover:bg-surface-container-high transition-colors cursor-pointer"
             >
               Close Preview
             </button>
@@ -104,7 +104,7 @@ import { ResearchRecord } from '../../data/zoerobo.data';
                 [href]="paper.externalUrl"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="px-4 py-2 rounded bg-mode-run text-canvas-pure font-mono text-[12px] font-semibold uppercase tracking-wider hover:bg-primary transition-colors inline-flex items-center gap-1.5"
+                class="px-4 py-2 rounded-[2px] bg-primary hover:bg-primary-hover text-on-primary font-mono text-[11px] font-semibold uppercase tracking-wider transition-colors inline-flex items-center gap-1.5"
               >
                 <span>Open Full Publication</span>
                 <mat-icon class="text-[16px]">open_in_new</mat-icon>

@@ -8,54 +8,61 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
   imports: [RouterLink, MatIconModule, ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <footer class="w-full bg-canvas-subtle border-t border-border-grid/80 mt-10">
-      <div class="w-full px-6 md:px-12 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 mb-10">
+    <footer class="w-full bg-canvas-subtle border-t border-border-active mt-12">
+      <div class="w-full max-w-[1360px] mx-auto px-6 md:px-12 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-10">
           <!-- Brand & Kinetic Manifesto -->
           <div class="lg:col-span-4 space-y-4">
-            <div class="flex items-center gap-2">
-              <span class="font-display text-[20px] font-semibold text-on-surface">
+            <div class="flex items-center gap-2.5">
+              <img
+                src="/assets/aistudio/image_c61b1d4d.png"
+                alt="ZoeRobo robotic arm logo"
+                class="h-8 w-8 object-contain shrink-0"
+              />
+              <span class="font-display text-[22px] font-bold uppercase tracking-[0.04em] text-on-surface">
                 ZoeRobo Engineering
               </span>
             </div>
-            <p class="font-display text-[24px] leading-8 font-semibold text-primary max-w-sm">
-              We make robots that Run, Drive &amp; Fly.
+            <p class="font-display text-[28px] leading-tight font-semibold uppercase text-on-surface max-w-sm">
+              We make robots that <span class="text-mode-run">Run</span>,
+              <span class="text-mode-drive">Drive</span> &amp;
+              <span class="text-mode-fly">Fly</span>.
             </p>
             <p class="text-[13px] leading-5 text-on-surface-variant max-w-md">
-              Empirical hardware synthesis for extreme autonomy, kinematic balance, and distributed
-              cybernetic intelligence.
+              Empirical hardware synthesis for extreme autonomy, mechanical balance, and on-device
+              robotics intelligence.
             </p>
-            <div class="flex items-center gap-2 pt-1">
+            <div class="flex flex-wrap items-center gap-2 pt-1">
               <a
                 routerLink="/jag-u-r-robot"
-                class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-mode-run/10 text-mode-run font-mono text-[10px] font-medium tracking-wider hover:bg-mode-run/20 transition-colors"
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[2px] bg-canvas-pure border border-mode-run text-mode-run font-mono text-[10px] font-semibold tracking-wider hover:bg-primary-container transition-colors"
               >
                 <span class="w-1.5 h-1.5 rounded-full bg-mode-run"></span>
-                RUN
+                ZR-RUN // JAG.U.R
               </a>
               <a
                 routerLink="/ai-ml-drive"
-                class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-mode-drive/10 text-mode-drive font-mono text-[10px] font-medium tracking-wider hover:bg-mode-drive/20 transition-colors"
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[2px] bg-canvas-pure border border-mode-drive text-mode-drive font-mono text-[10px] font-semibold tracking-wider hover:bg-secondary-fixed transition-colors"
               >
                 <span class="w-1.5 h-1.5 rounded-full bg-mode-drive"></span>
-                DRIVE
+                ZR-DRV // AI/ML
               </a>
               <a
                 routerLink="/firefly-drone"
-                class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-mode-fly/10 text-mode-fly font-mono text-[10px] font-medium tracking-wider hover:bg-mode-fly/20 transition-colors"
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[2px] bg-canvas-pure border border-mode-fly text-mode-fly font-mono text-[10px] font-semibold tracking-wider hover:bg-tertiary-fixed transition-colors"
               >
                 <span class="w-1.5 h-1.5 rounded-full bg-mode-fly"></span>
-                FLY
+                ZR-FLY // FIREFLY
               </a>
             </div>
           </div>
 
           <!-- Kinematic Matrix Links -->
           <div class="lg:col-span-2 space-y-3">
-            <div class="font-mono text-[10px] font-medium uppercase text-outline tracking-[0.06em]">
-              Kinematic Matrix
+            <div class="font-mono text-[10px] font-semibold uppercase text-outline tracking-[0.06em] pb-1.5 border-b border-border-grid">
+              01 / Platforms
             </div>
-            <ul class="space-y-2">
+            <ul class="space-y-2.5">
               <li class="flex items-center gap-2">
                 <mat-icon class="text-mode-fly text-[16px]">flight</mat-icon>
                 <a
@@ -80,16 +87,16 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
                   routerLink="/ai-ml-drive"
                   class="text-[13px] text-on-surface-variant hover:text-mode-drive transition-colors"
                 >
-                  AV Ground Drive Platform
+                  AV Ground Drive
                 </a>
               </li>
               <li class="flex items-center gap-2">
-                <mat-icon class="text-tertiary text-[16px]">memory</mat-icon>
+                <mat-icon class="text-on-surface-variant text-[16px]">memory</mat-icon>
                 <a
                   routerLink="/documentation"
-                  class="text-[13px] text-on-surface-variant hover:text-tertiary transition-colors"
+                  class="text-[13px] text-on-surface-variant hover:text-primary transition-colors"
                 >
-                  ROS2 / Telematics Stack
+                  ROS2 / Telematics SDK
                 </a>
               </li>
             </ul>
@@ -97,63 +104,62 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
           <!-- YLabZ Research Core -->
           <div class="lg:col-span-3 space-y-3">
-            <div class="font-mono text-[10px] font-medium uppercase text-outline tracking-[0.06em]">
-              YLabZ Research Core
+            <div class="font-mono text-[10px] font-semibold uppercase text-outline tracking-[0.06em] pb-1.5 border-b border-border-grid">
+              02 / YLabZ Telemetry Bus
             </div>
-            <ul class="space-y-1.5 font-mono text-[12px] text-on-surface-variant">
+            <ul class="space-y-1.5 font-mono text-[11px] text-on-surface-variant">
               <li
-                class="flex items-center justify-between px-2.5 py-1.5 bg-canvas-pure rounded border border-border-grid/50"
+                class="flex items-center justify-between px-2.5 py-1.5 bg-canvas-pure rounded-[2px] border border-border-grid"
               >
                 <span>Edge TPU Neural Pipeline</span>
                 <span class="text-signal-success text-[10px] font-semibold">ACTIVE</span>
               </li>
               <li
-                class="flex items-center justify-between px-2.5 py-1.5 bg-canvas-pure rounded border border-border-grid/50"
+                class="flex items-center justify-between px-2.5 py-1.5 bg-canvas-pure rounded-[2px] border border-border-grid"
               >
-                <span>DeepSeek LLM Local Guidance</span>
+                <span>DeepSeek Local Guidance</span>
                 <span class="text-signal-success text-[10px] font-semibold tabular-nums">0.12ms</span>
               </li>
               <li
-                class="flex items-center justify-between px-2.5 py-1.5 bg-canvas-pure rounded border border-border-grid/50"
+                class="flex items-center justify-between px-2.5 py-1.5 bg-canvas-pure rounded-[2px] border border-border-grid"
               >
                 <span>TensorFlow Lite Kinematics</span>
                 <span class="text-on-surface text-[10px] font-semibold">INT8</span>
               </li>
               <li
-                class="flex items-center justify-between px-2.5 py-1.5 bg-canvas-pure rounded border border-border-grid/50"
+                class="flex items-center justify-between px-2.5 py-1.5 bg-canvas-pure rounded-[2px] border border-border-grid"
               >
-                <span>YLabZ Hardware Telemetry</span>
-                <span class="text-primary text-[10px] font-semibold">v3.8</span>
+                <span>YLabZ Hardware Bus</span>
+                <span class="text-primary text-[10px] font-semibold">REV 4.2</span>
               </li>
             </ul>
           </div>
 
           <!-- Developer Dispatch Newsletter -->
           <div class="lg:col-span-3 space-y-3">
-            <div class="font-mono text-[10px] font-medium uppercase text-outline tracking-[0.06em]">
-              Developer Dispatch
+            <div class="font-mono text-[10px] font-semibold uppercase text-outline tracking-[0.06em] pb-1.5 border-b border-border-grid">
+              03 / Engineering Dispatch
             </div>
             <p class="text-[13px] leading-5 text-on-surface-variant">
-              Receive direct empirical updates, SDK kernel patches, and ROS2 modules from our field
-              robotics engineers.
+              Receive empirical hardware releases, SDK kernel patches, and ROS2 driver updates.
             </p>
             <form (submit)="onSubscribe($event)" class="flex flex-col gap-2">
               <input
                 type="email"
                 [formControl]="emailControl"
-                placeholder="developer@institution.edu"
-                aria-label="Institutional email for Developer Dispatch"
-                class="px-3.5 py-2 rounded bg-canvas-pure border border-border-grid text-on-surface text-[13px] placeholder:text-outline focus:outline-none focus:border-mode-run focus:ring-1 focus:ring-mode-run shadow-[0_1px_3px_0_rgba(15,23,42,0.04)]"
+                placeholder="engineer@institution.edu"
+                aria-label="Institutional email for Engineering Dispatch"
+                class="px-3 py-2 rounded-[2px] bg-canvas-pure border border-border-grid text-on-surface text-[13px] placeholder:text-outline focus:outline-none focus:border-primary"
               />
               <button
                 type="submit"
-                class="w-full px-4 py-2 rounded bg-secondary text-on-secondary font-mono text-[12px] font-medium uppercase tracking-[0.04em] hover:bg-secondary-container transition-colors cursor-pointer"
+                class="w-full px-4 py-2 rounded-[2px] bg-on-surface hover:bg-primary text-canvas-pure font-mono text-[11px] font-semibold uppercase tracking-[0.05em] transition-colors cursor-pointer"
               >
-                Subscribe Feed
+                Subscribe Dispatch
               </button>
               @if (subscribeStatus() === 'error') {
                 <p class="font-mono text-[11px] text-error">
-                  Enter a valid institutional or developer email address.
+                  Enter a valid institutional or engineering email.
                 </p>
               }
               @if (subscribeStatus() === 'success') {
@@ -168,10 +174,10 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
         <!-- Bottom Bar -->
         <div
-          class="pt-6 border-t border-border-grid/60 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[10px] text-outline"
+          class="pt-5 border-t border-border-grid flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[10px] text-outline uppercase tracking-wider"
         >
           <div>
-            <span>© 2025 ZoeRobo Systems Inc. All hardware and software patents reserved.</span>
+            <span>© 2025 ZoeRobo Systems Inc. · Industrial Robotics Division</span>
           </div>
           <div class="flex items-center gap-6">
             <a routerLink="/info-and-research" class="hover:text-on-surface transition-colors">

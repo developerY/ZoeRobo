@@ -6,8 +6,10 @@ type SdkTab = 'jagur' | 'firefly' | 'drive';
 
 interface SdkDocSpec {
   id: SdkTab;
+  unitId: string;
   title: string;
   modeTag: string;
+  modeAccentClass: string;
   packageName: string;
   middleware: string;
   installCmd: string;
@@ -19,8 +21,10 @@ interface SdkDocSpec {
 const SDK_DOCS: Record<SdkTab, SdkDocSpec> = {
   jagur: {
     id: 'jagur',
+    unitId: 'ZR-RUN-001',
     title: 'Jag.U.R™ Quadruped ROS2 & CAN-FD SDK',
     modeTag: 'RUN // QUADRUPED',
+    modeAccentClass: 'text-mode-run',
     packageName: 'ros-humble-zoerobo-jagur-stack',
     middleware: 'ROS2 Humble + RT-PREEMPT Ubuntu 22.04',
     installCmd: 'sudo apt install ros-humble-zoerobo-jagur-control ros-humble-jagur-urdf',
@@ -52,8 +56,10 @@ const SDK_DOCS: Record<SdkTab, SdkDocSpec> = {
   },
   firefly: {
     id: 'firefly',
+    unitId: 'ZR-FLY-004',
     title: 'FireFly™ Micro-UAS DeepSeek Local Guidance SDK',
     modeTag: 'FLY // MICRO UAS',
+    modeAccentClass: 'text-mode-fly',
     packageName: 'zoerobo-firefly-vlm-runtime',
     middleware: 'Micro-ROS + DeepSeek-R1 INT8 Edge Runtime',
     installCmd: 'pip install zoerobo-firefly-sdk && firefly-cli pull deepseek-r1-spatial-int8',
@@ -85,8 +91,10 @@ const SDK_DOCS: Record<SdkTab, SdkDocSpec> = {
   },
   drive: {
     id: 'drive',
+    unitId: 'ZR-DRV-009',
     title: 'AI/ML Drive Smartphone Edge TPU & BLE Bridge',
     modeTag: 'DRIVE // WHEELED AGV',
+    modeAccentClass: 'text-mode-drive',
     packageName: 'zoerobo-pixelopolis-tflite',
     middleware: 'TensorFlow Lite INT8 + Android CameraX + ESP32 UART',
     installCmd: 'git clone https://github.com/zoerobo/open-autonomy-stack.git && cd drive-tpu',
@@ -123,19 +131,19 @@ const SDK_DOCS: Record<SdkTab, SdkDocSpec> = {
   imports: [RouterLink, MatIconModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="flex flex-col w-full">
-      <!-- Top Ribbon -->
-      <section class="w-full bg-canvas-pure border-b border-border-grid/70 px-6 md:px-12 py-8">
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-          <div class="space-y-2">
-            <div class="flex items-center gap-2 font-mono text-[11px] text-on-surface-variant">
-              <span class="px-2.5 py-0.5 rounded bg-surface-container-high text-primary font-bold">
-                SDK &amp; API REFERENCE // V4.2
+    <div class="flex flex-col w-full bg-surface text-on-surface">
+      <!-- 01 / SDK Reference Header -->
+      <section class="w-full bg-canvas-pure border-b border-border-active px-6 md:px-10 py-10">
+        <div class="max-w-[1360px] mx-auto flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div class="space-y-2.5">
+            <div class="flex flex-wrap items-center gap-2 font-mono text-[11px] text-on-surface-variant">
+              <span class="px-2.5 py-0.5 rounded-[2px] bg-primary-container border border-primary/40 text-on-primary-container font-bold uppercase">
+                01 / SDK &amp; API REFERENCE · REV 4.2
               </span>
-              <span class="text-outline">/</span>
-              <span>ROS2 HUMBLE • TFLITE • DEEPSEEK EDGE</span>
+              <span class="text-border-active">|</span>
+              <span>ROS2 HUMBLE · TFLITE · DEEPSEEK EDGE</span>
             </div>
-            <h1 class="font-display text-[38px] sm:text-[48px] leading-[1.08] font-bold text-on-surface tracking-[-0.03em]">
+            <h1 class="font-display text-[44px] sm:text-[54px] leading-[1.0] font-bold uppercase text-on-surface tracking-[-0.02em]">
               ZoeRobo Developer Documentation
             </h1>
             <p class="text-[16px] leading-6 text-on-surface-variant max-w-2xl">
@@ -143,137 +151,146 @@ const SDK_DOCS: Record<SdkTab, SdkDocSpec> = {
               and quantized Edge TPU deployment guides across Run, Drive &amp; Fly platforms.
             </p>
           </div>
+
+          <!-- Platform Equipment Tabs -->
           <div class="flex flex-wrap gap-2">
             <button
               type="button"
               (click)="setTab('jagur')"
-              class="px-4 py-2 rounded font-mono text-[12px] uppercase tracking-wider transition-all cursor-pointer"
+              class="px-4 py-2.5 rounded-[2px] font-mono text-[11px] uppercase tracking-wider font-semibold transition-colors cursor-pointer border"
               [class.bg-mode-run]="activeTab() === 'jagur'"
-              [class.text-canvas-pure]="activeTab() === 'jagur'"
-              [class.font-semibold]="activeTab() === 'jagur'"
-              [class.bg-canvas-subtle]="activeTab() !== 'jagur'"
-              [class.text-on-surface-variant]="activeTab() !== 'jagur'"
+              [class.text-on-primary]="activeTab() === 'jagur'"
+              [class.border-mode-run]="activeTab() === 'jagur'"
+              [class.bg-surface-container]="activeTab() !== 'jagur'"
+              [class.text-on-surface]="activeTab() !== 'jagur'"
+              [class.border-border-grid]="activeTab() !== 'jagur'"
             >
-              Jag.U.R (Run)
+              ZR-RUN · Jag.U.R
             </button>
             <button
               type="button"
               (click)="setTab('firefly')"
-              class="px-4 py-2 rounded font-mono text-[12px] uppercase tracking-wider transition-all cursor-pointer"
+              class="px-4 py-2.5 rounded-[2px] font-mono text-[11px] uppercase tracking-wider font-semibold transition-colors cursor-pointer border"
               [class.bg-mode-fly]="activeTab() === 'firefly'"
-              [class.text-canvas-pure]="activeTab() === 'firefly'"
-              [class.font-semibold]="activeTab() === 'firefly'"
-              [class.bg-canvas-subtle]="activeTab() !== 'firefly'"
-              [class.text-on-surface-variant]="activeTab() !== 'firefly'"
+              [class.text-on-tertiary]="activeTab() === 'firefly'"
+              [class.border-mode-fly]="activeTab() === 'firefly'"
+              [class.bg-surface-container]="activeTab() !== 'firefly'"
+              [class.text-on-surface]="activeTab() !== 'firefly'"
+              [class.border-border-grid]="activeTab() !== 'firefly'"
             >
-              FireFly (Fly)
+              ZR-FLY · FireFly
             </button>
             <button
               type="button"
               (click)="setTab('drive')"
-              class="px-4 py-2 rounded font-mono text-[12px] uppercase tracking-wider transition-all cursor-pointer"
+              class="px-4 py-2.5 rounded-[2px] font-mono text-[11px] uppercase tracking-wider font-semibold transition-colors cursor-pointer border"
               [class.bg-mode-drive]="activeTab() === 'drive'"
-              [class.text-canvas-pure]="activeTab() === 'drive'"
-              [class.font-semibold]="activeTab() === 'drive'"
-              [class.bg-canvas-subtle]="activeTab() !== 'drive'"
-              [class.text-on-surface-variant]="activeTab() !== 'drive'"
+              [class.text-on-secondary]="activeTab() === 'drive'"
+              [class.border-mode-drive]="activeTab() === 'drive'"
+              [class.bg-surface-container]="activeTab() !== 'drive'"
+              [class.text-on-surface]="activeTab() !== 'drive'"
+              [class.border-border-grid]="activeTab() !== 'drive'"
             >
-              AI/ML Car (Drive)
+              ZR-DRV · AI/ML Car
             </button>
           </div>
         </div>
       </section>
 
-      <!-- Main SDK Reference Content -->
-      <section class="w-full px-6 md:px-12 py-10">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- 02 / Main SDK Reference & Telemetry Topics -->
+      <section class="w-full px-6 md:px-10 py-12 bg-surface">
+        <div class="max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
           <!-- Left Main Docs -->
           <div class="lg:col-span-8 space-y-6">
-            <div class="bg-canvas-pure border border-border-grid rounded-xl p-6 shadow-sm space-y-5">
-              <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-border-grid/60">
+            <div class="bg-canvas-pure border border-border-active rounded-[4px] p-6 space-y-5">
+              <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-border-grid">
                 <div>
-                  <span class="font-mono text-[10px] uppercase tracking-wider text-primary font-bold">
-                    {{ currentDoc().modeTag }}
-                  </span>
-                  <h2 class="font-display text-[26px] font-semibold text-on-surface mt-0.5">
+                  <div class="flex items-center gap-2 font-mono text-[10px]">
+                    <span class="font-bold uppercase tracking-wider" [class]="currentDoc().modeAccentClass">
+                      {{ currentDoc().modeTag }}
+                    </span>
+                    <span class="text-border-active">|</span>
+                    <span class="text-outline font-semibold">UNIT: {{ currentDoc().unitId }}</span>
+                  </div>
+                  <h2 class="font-display text-[30px] leading-8 font-bold uppercase text-on-surface mt-1">
                     {{ currentDoc().title }}
                   </h2>
                 </div>
-                <span class="font-mono text-[11px] px-2.5 py-1 rounded bg-canvas-subtle text-on-surface-variant">
+                <span class="font-mono text-[11px] px-2.5 py-1 rounded-[2px] bg-surface-container border border-border-grid text-on-surface font-semibold">
                   {{ currentDoc().middleware }}
                 </span>
               </div>
 
-              <!-- Quickstart Commands -->
+              <!-- Light Industrial CLI Blocks -->
               <div class="space-y-4">
                 <div>
                   <div class="flex items-center justify-between mb-1.5">
-                    <span class="font-mono text-[11px] uppercase text-outline font-semibold">
-                      1. Install Package &amp; Model Checkpoints
+                    <span class="font-mono text-[11px] uppercase text-outline font-bold">
+                      01 · INSTALL PACKAGE &amp; MODEL CHECKPOINTS
                     </span>
                     <button
                       type="button"
                       (click)="copySnippet('install', currentDoc().installCmd)"
-                      class="font-mono text-[11px] text-primary hover:underline flex items-center gap-1 cursor-pointer"
+                      class="font-mono text-[11px] text-primary hover:text-primary-hover font-semibold flex items-center gap-1 cursor-pointer uppercase"
                     >
                       <mat-icon class="text-[14px]">content_copy</mat-icon>
                       <span>{{ copiedKey() === 'install' ? 'Copied' : 'Copy' }}</span>
                     </button>
                   </div>
                   <pre
-                    class="p-4 rounded-lg bg-inverse-surface text-inverse-on-surface font-mono text-[12px] overflow-x-auto"
-                  ><code>$ {{ currentDoc().installCmd }}</code></pre>
+                    class="p-4 rounded-[2px] bg-inverse-surface border border-border-active text-inverse-on-surface font-mono text-[12px] overflow-x-auto"
+                  ><code><span class="text-primary font-bold">$</span> {{ currentDoc().installCmd }}</code></pre>
                 </div>
 
                 <div>
                   <div class="flex items-center justify-between mb-1.5">
-                    <span class="font-mono text-[11px] uppercase text-outline font-semibold">
-                      2. Launch Autonomous Stack
+                    <span class="font-mono text-[11px] uppercase text-outline font-bold">
+                      02 · LAUNCH AUTONOMOUS STACK
                     </span>
                     <button
                       type="button"
                       (click)="copySnippet('launch', currentDoc().launchCmd)"
-                      class="font-mono text-[11px] text-primary hover:underline flex items-center gap-1 cursor-pointer"
+                      class="font-mono text-[11px] text-primary hover:text-primary-hover font-semibold flex items-center gap-1 cursor-pointer uppercase"
                     >
                       <mat-icon class="text-[14px]">content_copy</mat-icon>
                       <span>{{ copiedKey() === 'launch' ? 'Copied' : 'Copy' }}</span>
                     </button>
                   </div>
                   <pre
-                    class="p-4 rounded-lg bg-inverse-surface text-inverse-on-surface font-mono text-[12px] overflow-x-auto"
-                  ><code>$ {{ currentDoc().launchCmd }}</code></pre>
+                    class="p-4 rounded-[2px] bg-inverse-surface border border-border-active text-inverse-on-surface font-mono text-[12px] overflow-x-auto"
+                  ><code><span class="text-primary font-bold">$</span> {{ currentDoc().launchCmd }}</code></pre>
                 </div>
               </div>
             </div>
 
             <!-- ROS2 / Telemetry Topic Table -->
-            <div class="bg-canvas-pure border border-border-grid rounded-xl shadow-sm overflow-hidden">
-              <div class="px-6 py-4 bg-canvas-subtle border-b border-border-grid/70 flex items-center justify-between">
-                <h3 class="font-display text-[20px] font-semibold text-on-surface">
+            <div class="bg-canvas-pure border border-border-active rounded-[4px] overflow-hidden">
+              <div class="px-6 py-4 bg-surface-container border-b border-border-grid flex items-center justify-between">
+                <h3 class="font-display text-[24px] font-bold uppercase text-on-surface">
                   Published Telemetry Topics &amp; Interfaces
                 </h3>
-                <span class="font-mono text-[10px] text-outline">ZERO-COPY DDS</span>
+                <span class="font-mono text-[10px] text-outline font-bold uppercase">ZERO-COPY DDS</span>
               </div>
               <div class="overflow-x-auto">
-                <table class="w-full text-left text-[13px]">
-                  <thead class="bg-surface-container-low font-mono text-[10px] uppercase text-on-surface-variant">
-                    <tr>
-                      <th class="py-3 px-4">Topic Path</th>
-                      <th class="py-3 px-4">Message Type</th>
-                      <th class="py-3 px-4">Rate</th>
-                      <th class="py-3 px-4">Description</th>
+                <table class="w-full text-left text-[13px] border-collapse">
+                  <thead>
+                    <tr class="bg-surface-container-high border-b-2 border-border-active font-mono text-[10px] uppercase text-on-surface">
+                      <th class="py-3 px-4 font-bold">Topic Path</th>
+                      <th class="py-3 px-4 font-bold">Message Type</th>
+                      <th class="py-3 px-4 font-bold">Rate</th>
+                      <th class="py-3 px-4 font-bold">Description</th>
                     </tr>
                   </thead>
-                  <tbody class="divide-y divide-border-grid/60">
+                  <tbody class="divide-y divide-border-grid">
                     @for (topic of currentDoc().topics; track topic.name) {
-                      <tr class="hover:bg-canvas-subtle transition-colors">
-                        <td class="py-3.5 px-4 font-mono text-[12px] font-semibold text-primary">
+                      <tr class="even:bg-canvas-subtle hover:bg-surface-container-high/60 transition-colors">
+                        <td class="py-3.5 px-4 font-mono text-[12px] font-bold text-primary">
                           {{ topic.name }}
                         </td>
                         <td class="py-3.5 px-4 font-mono text-[11px] text-on-surface-variant">
                           {{ topic.type }}
                         </td>
-                        <td class="py-3.5 px-4 font-mono text-[11px] text-signal-success font-semibold tabular-nums">
+                        <td class="py-3.5 px-4 font-mono text-[11px] text-signal-success font-bold tabular-nums">
                           {{ topic.rate }}
                         </td>
                         <td class="py-3.5 px-4 text-on-surface-variant">{{ topic.desc }}</td>
@@ -285,17 +302,17 @@ const SDK_DOCS: Record<SdkTab, SdkDocSpec> = {
             </div>
           </div>
 
-          <!-- Right Sidebar: Schematics & Hardware Kits -->
+          <!-- Right Sidebar: Schematics & Support -->
           <div class="lg:col-span-4 space-y-6">
-            <div class="bg-canvas-pure border border-border-grid rounded-xl p-6 shadow-sm space-y-4">
-              <div class="font-mono text-[10px] uppercase tracking-wider text-outline font-semibold">
-                Hardware Schematics &amp; CAD Bundles
+            <div class="bg-canvas-pure border border-border-active rounded-[4px] p-6 space-y-4">
+              <div class="font-mono text-[10px] uppercase tracking-[0.08em] text-outline font-bold pb-2 border-b border-border-grid">
+                HARDWARE SCHEMATICS &amp; CAD BUNDLES
               </div>
               <div class="space-y-3">
                 @for (file of currentDoc().downloads; track file.name) {
-                  <div class="p-3.5 rounded-lg bg-canvas-subtle border border-border-grid/60 flex items-center justify-between gap-3">
+                  <div class="p-3.5 rounded-[2px] bg-surface-container border border-border-grid flex items-center justify-between gap-3">
                     <div class="min-w-0">
-                      <div class="font-mono text-[12px] font-semibold text-on-surface truncate">
+                      <div class="font-mono text-[12px] font-bold text-on-surface truncate">
                         {{ file.name }}
                       </div>
                       <div class="font-mono text-[10px] text-outline mt-0.5">
@@ -305,7 +322,7 @@ const SDK_DOCS: Record<SdkTab, SdkDocSpec> = {
                     <button
                       type="button"
                       (click)="downloadManifest(file.name, file.format)"
-                      class="px-3 py-1.5 rounded bg-canvas-pure border border-border-grid hover:border-mode-run text-primary font-mono text-[11px] font-semibold shrink-0 cursor-pointer flex items-center gap-1"
+                      class="px-3 py-1.5 rounded-[2px] bg-canvas-pure border border-border-active hover:border-primary hover:text-primary text-on-surface font-mono text-[11px] font-semibold uppercase shrink-0 cursor-pointer flex items-center gap-1 transition-colors"
                     >
                       <mat-icon class="text-[15px]">download</mat-icon>
                       <span>Get</span>
@@ -314,18 +331,18 @@ const SDK_DOCS: Record<SdkTab, SdkDocSpec> = {
                 }
               </div>
               @if (lastDownloaded()) {
-                <div class="p-2.5 rounded bg-signal-success/10 text-signal-success font-mono text-[11px] flex items-center gap-1.5">
+                <div class="p-3 rounded-[2px] bg-surface-container border border-signal-success text-signal-success font-mono text-[11px] font-semibold flex items-center gap-1.5">
                   <mat-icon class="text-[15px]">check_circle</mat-icon>
                   <span>Downloaded manifest for {{ lastDownloaded() }}</span>
                 </div>
               }
             </div>
 
-            <div class="bg-surface-container-low border border-border-grid/70 rounded-xl p-6 space-y-3">
-              <div class="font-mono text-[10px] uppercase tracking-wider text-mode-run font-bold">
-                Need Custom Firmware Support?
+            <div class="bg-surface-container-high border border-border-active rounded-[4px] p-6 space-y-3">
+              <div class="font-mono text-[10px] uppercase tracking-[0.08em] text-primary font-bold">
+                NEED CUSTOM FIRMWARE SUPPORT?
               </div>
-              <h3 class="font-display text-[20px] font-semibold text-on-surface">
+              <h3 class="font-display text-[24px] font-bold uppercase text-on-surface">
                 Partner with YLabZ Engineers
               </h3>
               <p class="text-[13px] leading-5 text-on-surface-variant">
@@ -335,7 +352,7 @@ const SDK_DOCS: Record<SdkTab, SdkDocSpec> = {
               <a
                 routerLink="/info-and-research"
                 fragment="contact-labs"
-                class="w-full py-2.5 px-4 rounded bg-mode-run hover:bg-primary text-canvas-pure font-mono text-[12px] font-semibold uppercase tracking-wider text-center inline-flex items-center justify-center gap-1.5 transition-colors"
+                class="w-full py-2.5 px-4 rounded-[2px] bg-primary hover:bg-primary-hover text-on-primary font-mono text-[12px] font-semibold uppercase tracking-wider text-center inline-flex items-center justify-center gap-1.5 transition-colors"
               >
                 <span>Open Lab Inquiry</span>
                 <mat-icon class="text-[16px]">arrow_forward</mat-icon>

@@ -28,58 +28,42 @@ interface QuickJumpItem {
   },
   template: `
     <header
-      class="fixed top-0 left-0 right-0 z-50 bg-canvas-pure/90 backdrop-blur-xl border-b border-border-grid/70 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
+      class="fixed top-0 left-0 right-0 z-50 bg-canvas-pure border-b border-border-active"
     >
-      <div class="h-20 w-full px-4 sm:px-6 md:px-12 flex items-center justify-between gap-4">
-        <!-- Brand & Revision -->
-        <div class="flex items-center gap-5 shrink-0">
+      <div class="h-[72px] w-full max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between gap-4">
+        <!-- Brand & Equipment Revision -->
+        <div class="flex items-center gap-4 shrink-0">
           <a
             routerLink="/overview"
-            class="flex items-center gap-2.5 group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mode-run rounded"
+            class="flex items-center gap-2.5 group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary rounded-[2px]"
             (click)="closeMenus()"
           >
-            <!-- Precision Geometric ZoeRobo Emblem -->
-            <div
-              class="w-9 h-9 rounded-lg bg-on-surface flex items-center justify-center shadow-sm group-hover:bg-primary transition-colors"
-              aria-hidden="true"
-            >
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M4 7.5L12 3L20 7.5V16.5L12 21L4 16.5V7.5Z"
-                  stroke="#93CCFF"
-                  stroke-width="1.75"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M8 9.5H16L8 14.5H16"
-                  stroke="#FFFFFF"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <circle cx="12" cy="3" r="1.4" fill="#0D9488" />
-                <circle cx="20" cy="16.5" r="1.4" fill="#0284C7" />
-              </svg>
-            </div>
-            <span class="font-display text-[20px] font-semibold tracking-tight text-on-surface whitespace-nowrap">
+            <!-- ZoeRobo Robotic Arm Logo -->
+            <img
+              src="/assets/aistudio/image_c61b1d4d.png"
+              alt="ZoeRobo robotic arm logo"
+              class="h-10 w-10 object-contain shrink-0"
+            />
+            <span class="font-display text-[26px] font-bold uppercase tracking-[0.04em] text-on-surface leading-none whitespace-nowrap">
               ZoeRobo
             </span>
           </a>
           <span
-            class="hidden 2xl:inline-block font-mono text-[10px] font-medium tracking-[0.06em] text-on-surface-variant bg-canvas-muted px-2 py-0.5 rounded whitespace-nowrap"
+            class="hidden 2xl:inline-flex items-center gap-1.5 font-mono text-[10px] font-medium tracking-[0.06em] text-outline bg-surface border border-border-grid px-2 py-1 rounded-[2px] whitespace-nowrap"
           >
-            SYS.AUTONOMY // V4.2
+            <span class="w-1.5 h-1.5 rounded-full bg-signal-success"></span>
+            SYS.AUTONOMY · REV 4.2
           </span>
         </div>
 
         <!-- Desktop Primary Navigation -->
-        <nav class="hidden lg:flex items-center gap-1" aria-label="Primary navigation">
+        <nav class="hidden lg:flex items-center h-full gap-1" aria-label="Primary navigation">
           @for (item of navItems; track item.path) {
             <a
               [routerLink]="item.path"
-              routerLinkActive="bg-surface-container-high text-primary font-bold"
+              routerLinkActive="text-on-surface font-semibold border-b-2 border-primary bg-surface-container-high/60"
               [routerLinkActiveOptions]="{ exact: false }"
-              class="px-3.5 py-2 rounded font-mono text-[12px] font-medium uppercase tracking-[0.04em] text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all whitespace-nowrap shrink-0"
+              class="h-full px-3.5 flex items-center font-mono text-[11px] font-medium uppercase tracking-[0.05em] text-on-surface-variant border-b-2 border-transparent hover:text-on-surface hover:bg-surface-container transition-colors whitespace-nowrap shrink-0"
             >
               {{ item.label }}
             </a>
@@ -87,19 +71,19 @@ interface QuickJumpItem {
         </nav>
 
         <!-- Right Utility Actions & Mobile Trigger -->
-        <div class="flex items-center gap-3 shrink-0">
+        <div class="flex items-center gap-2.5 shrink-0">
           <a
             routerLink="/documentation"
-            routerLinkActive="text-primary font-bold"
-            class="hidden md:inline-block font-mono text-[12px] font-medium uppercase tracking-[0.04em] text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap"
+            routerLinkActive="text-primary font-semibold"
+            class="hidden md:inline-block px-2 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.05em] text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap"
           >
-            Documentation
+            Docs / SDK
           </a>
 
           <a
             routerLink="/info-and-research"
             fragment="contact-labs"
-            class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded bg-mode-run text-canvas-pure font-mono text-[12px] font-semibold uppercase tracking-[0.04em] shadow-[0_1px_3px_0_rgba(15,23,42,0.04)] hover:bg-primary transition-colors whitespace-nowrap"
+            class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-[2px] bg-primary hover:bg-primary-hover text-on-primary font-mono text-[11px] font-semibold uppercase tracking-[0.05em] transition-colors whitespace-nowrap"
           >
             Contact Labs
           </a>
@@ -108,51 +92,51 @@ interface QuickJumpItem {
           <button
             type="button"
             (click)="openCommandPalette()"
-            class="h-9 px-2.5 rounded-full bg-primary hover:bg-primary-container text-on-primary flex items-center gap-1.5 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mode-run"
+            class="h-9 px-2.5 rounded-[2px] bg-canvas-pure border border-border-active hover:bg-surface-container-high text-on-surface flex items-center gap-1.5 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             aria-label="Open quick navigation search"
             title="Quick Navigate (⌘K / Ctrl+K)"
           >
-            <mat-icon class="text-[18px]">search</mat-icon>
-            <span class="hidden xl:inline font-mono text-[10px] tracking-wider pr-1 opacity-90">⌘K</span>
+            <mat-icon class="text-[17px]">search</mat-icon>
+            <span class="hidden xl:inline font-mono text-[10px] tracking-wider text-outline">⌘K</span>
           </button>
 
           <!-- Mobile Menu Toggle -->
           <button
             type="button"
             (click)="toggleMobileMenu()"
-            class="lg:hidden w-10 h-10 rounded-lg bg-canvas-subtle hover:bg-canvas-muted text-on-surface flex items-center justify-center transition-colors cursor-pointer"
+            class="lg:hidden w-9 h-9 rounded-[2px] bg-canvas-pure border border-border-active hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors cursor-pointer"
             [attr.aria-expanded]="mobileMenuOpen()"
             aria-label="Toggle navigation menu"
           >
-            <mat-icon class="text-[22px]">{{ mobileMenuOpen() ? 'close' : 'menu' }}</mat-icon>
+            <mat-icon class="text-[20px]">{{ mobileMenuOpen() ? 'close' : 'menu' }}</mat-icon>
           </button>
         </div>
       </div>
 
-      <!-- Mobile Responsive Drawer -->
+      <!-- Square-Edged Industrial Mobile Drawer -->
       @if (mobileMenuOpen()) {
-        <div class="lg:hidden bg-canvas-pure border-t border-border-grid shadow-lg px-4 py-4 space-y-2">
-          <div class="flex items-center justify-between pb-2 mb-2 border-b border-border-grid/70">
-            <span class="font-mono text-[10px] tracking-wider text-outline uppercase">
-              Autonomous Fleet Navigation
+        <div class="lg:hidden bg-canvas-pure border-t border-border-active px-6 py-4 space-y-2">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-border-grid">
+            <span class="font-mono text-[10px] tracking-[0.06em] text-outline uppercase">
+              00 / FLEET NAVIGATION
             </span>
-            <span class="font-mono text-[10px] text-primary font-semibold">V4.2</span>
+            <span class="font-mono text-[10px] text-primary font-semibold">REV 4.2</span>
           </div>
 
           <div class="grid grid-cols-1 gap-1">
             @for (item of navItems; track item.path) {
               <a
                 [routerLink]="item.path"
-                routerLinkActive="bg-surface-container-high text-primary font-bold"
+                routerLinkActive="bg-surface-container-high text-on-surface font-semibold border-l-2 border-primary"
                 (click)="closeMenus()"
-                class="flex items-center justify-between px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-canvas-subtle transition-colors"
+                class="flex items-center justify-between px-3 py-2.5 rounded-[2px] text-on-surface-variant hover:bg-surface-container transition-colors"
               >
                 <span class="flex items-center gap-3">
-                  <mat-icon class="text-[20px]">{{ item.icon }}</mat-icon>
-                  <span class="font-mono text-[13px] uppercase tracking-wider">{{ item.label }}</span>
+                  <mat-icon class="text-[18px]">{{ item.icon }}</mat-icon>
+                  <span class="font-mono text-[12px] uppercase tracking-[0.04em]">{{ item.label }}</span>
                 </span>
                 @if (item.modeTag) {
-                  <span class="font-mono text-[10px] px-2 py-0.5 rounded-full bg-canvas-muted text-on-surface">
+                  <span class="font-mono text-[10px] px-2 py-0.5 rounded-[2px] bg-canvas-muted border border-border-grid text-on-surface">
                     {{ item.modeTag }}
                   </span>
                 }
@@ -161,23 +145,23 @@ interface QuickJumpItem {
 
             <a
               routerLink="/documentation"
-              routerLinkActive="bg-surface-container-high text-primary font-bold"
+              routerLinkActive="bg-surface-container-high text-on-surface font-semibold border-l-2 border-primary"
               (click)="closeMenus()"
-              class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-canvas-subtle transition-colors"
+              class="flex items-center gap-3 px-3 py-2.5 rounded-[2px] text-on-surface-variant hover:bg-surface-container transition-colors"
             >
-              <mat-icon class="text-[20px]">menu_book</mat-icon>
-              <span class="font-mono text-[13px] uppercase tracking-wider">Documentation & SDK</span>
+              <mat-icon class="text-[18px]">menu_book</mat-icon>
+              <span class="font-mono text-[12px] uppercase tracking-[0.04em]">Documentation &amp; SDK</span>
             </a>
           </div>
 
-          <div class="pt-2 border-t border-border-grid/70">
+          <div class="pt-3 border-t border-border-grid">
             <a
               routerLink="/info-and-research"
               fragment="contact-labs"
               (click)="closeMenus()"
-              class="w-full py-2.5 px-4 rounded-lg bg-mode-run text-canvas-pure font-mono text-[12px] font-semibold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-primary transition-colors"
+              class="w-full py-2.5 px-4 rounded-[2px] bg-primary hover:bg-primary-hover text-on-primary font-mono text-[12px] font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors"
             >
-              <mat-icon class="text-[18px]">mail</mat-icon>
+              <mat-icon class="text-[17px]">mail</mat-icon>
               <span>Contact ZoeRobo Labs</span>
             </a>
           </div>
@@ -188,7 +172,7 @@ interface QuickJumpItem {
     <!-- Command Palette Quick-Jump Modal -->
     @if (commandOpen()) {
       <div
-        class="fixed inset-0 z-[70] flex items-start justify-center pt-24 px-4"
+        class="fixed inset-0 z-[70] flex items-start justify-center pt-20 px-4"
         role="dialog"
         aria-modal="true"
         aria-label="Quick navigation command palette"
@@ -196,44 +180,44 @@ interface QuickJumpItem {
         <button
           type="button"
           (click)="closeCommandPalette()"
-          class="fixed inset-0 bg-on-surface/40 backdrop-blur-sm cursor-default"
+          class="fixed inset-0 bg-on-surface/35 cursor-default"
           aria-label="Close quick navigation"
         ></button>
         <div
-          class="relative z-10 w-full max-w-xl bg-canvas-pure rounded-xl shadow-[0_20px_25px_-5px_rgba(15,23,42,0.12),0_0_0_1px_#E2E8F0] overflow-hidden"
+          class="relative z-10 w-full max-w-xl bg-canvas-pure border border-border-active rounded-[4px] overflow-hidden"
         >
-          <div class="flex items-center gap-3 px-4 py-3.5 border-b border-border-grid">
-            <mat-icon class="text-mode-run text-[20px]">search</mat-icon>
+          <div class="flex items-center gap-3 px-4 py-3.5 bg-surface-container border-b border-border-grid">
+            <mat-icon class="text-primary text-[20px]">search</mat-icon>
             <input
               type="text"
               [formControl]="searchControl"
-              placeholder="Jump to FireFly, Jag.U.R, Pixelopolis, ROS2 SDK, or Labs..."
-              class="w-full bg-transparent text-[14px] text-on-surface placeholder:text-outline focus:outline-none"
+              placeholder="Jump to Jag.U.R, FireFly, AI/ML Drive, ROS2 SDK, or Labs..."
+              class="w-full bg-transparent font-mono text-[13px] text-on-surface placeholder:text-outline focus:outline-none"
             />
             <button
               type="button"
               (click)="closeCommandPalette()"
-              class="px-2 py-0.5 rounded bg-canvas-muted font-mono text-[10px] text-outline hover:text-on-surface cursor-pointer"
+              class="px-2 py-0.5 rounded-[2px] bg-canvas-pure border border-border-grid font-mono text-[10px] text-outline hover:text-on-surface cursor-pointer"
             >
               ESC
             </button>
           </div>
 
-          <div class="max-h-80 overflow-y-auto p-2 space-y-1">
+          <div class="max-h-80 overflow-y-auto divide-y divide-border-grid/60">
             @for (item of filteredItems(); track item.title) {
               <button
                 type="button"
                 (click)="navigateToItem(item)"
-                class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-surface-container-low flex items-center justify-between gap-3 transition-colors cursor-pointer group"
+                class="w-full text-left px-4 py-3 hover:bg-surface-container-high flex items-center justify-between gap-3 transition-colors cursor-pointer group"
               >
                 <div class="flex items-center gap-3 min-w-0">
                   <div
-                    class="w-8 h-8 rounded-lg bg-canvas-subtle group-hover:bg-canvas-pure flex items-center justify-center text-primary shrink-0"
+                    class="w-8 h-8 rounded-[2px] bg-canvas-subtle border border-border-grid group-hover:border-primary flex items-center justify-center text-on-surface shrink-0"
                   >
-                    <mat-icon class="text-[18px]">{{ item.icon }}</mat-icon>
+                    <mat-icon class="text-[17px]">{{ item.icon }}</mat-icon>
                   </div>
                   <div class="min-w-0">
-                    <div class="font-display text-[14px] font-semibold text-on-surface truncate">
+                    <div class="font-display text-[17px] font-semibold uppercase tracking-wide text-on-surface truncate">
                       {{ item.title }}
                     </div>
                     <div class="text-[12px] text-on-surface-variant truncate">
@@ -242,23 +226,23 @@ interface QuickJumpItem {
                   </div>
                 </div>
                 <span
-                  class="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-canvas-muted text-outline shrink-0"
+                  class="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-[2px] bg-canvas-muted border border-border-grid text-on-surface-variant shrink-0"
                 >
                   {{ item.category }}
                 </span>
               </button>
             } @empty {
-              <div class="py-8 text-center text-[13px] text-outline">
-                No matching platform, specification, or research paper found.
+              <div class="py-8 text-center font-mono text-[12px] text-outline">
+                NO MATCHING PLATFORM, SPEC, OR DOCUMENT FOUND.
               </div>
             }
           </div>
 
           <div
-            class="px-4 py-2.5 bg-canvas-subtle border-t border-border-grid flex items-center justify-between font-mono text-[10px] text-outline"
+            class="px-4 py-2 bg-canvas-subtle border-t border-border-grid flex items-center justify-between font-mono text-[10px] text-outline"
           >
-            <span>ZOEROBO QUICK NAVIGATOR</span>
-            <span>SELECT DESTINATION TO JUMP</span>
+            <span>ZOEROBO ENGINEERING INDEX</span>
+            <span>SELECT ENTRY TO NAVIGATE</span>
           </div>
         </div>
       </div>
@@ -292,7 +276,7 @@ export class Header {
     {
       title: 'FireFly Prompt-to-Kinematic Simulator',
       subtitle: 'Test natural language indoor flight commands on DeepSeek Local',
-      category: 'SIMULATOR',
+      category: 'FLY',
       icon: 'psychology',
       route: '/firefly-drone',
       fragment: 'demo-section',
@@ -300,7 +284,7 @@ export class Header {
     {
       title: 'Jag.U.R Kinematic & Payload Profiler',
       subtitle: 'Compare Recon Scout, Heavy Utility & Extreme Sprint torque profiles',
-      category: 'SIMULATOR',
+      category: 'RUN',
       icon: 'speed',
       route: '/jag-u-r-robot',
       fragment: 'jagur-profiler',
@@ -308,7 +292,7 @@ export class Header {
     {
       title: 'Edge TPU Live Hazard Console',
       subtitle: 'Trigger pedestrian emergency braking on the TFLite kinematic loop',
-      category: 'SIMULATOR',
+      category: 'DRIVE',
       icon: 'developer_board',
       route: '/ai-ml-drive',
       fragment: 'tpu-loop',

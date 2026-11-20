@@ -2,5 +2,7 @@
   "name": "ZoeRobo — Autonomous Robotics Engineering",
   "description": "Autonomous robotics engineering platform showcasing FireFly micro-UAS, Jag.U.R quadruped, AI/ML Drive edge intelligence, and YLabZ research.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

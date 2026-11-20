@@ -2,78 +2,88 @@
 @import "tailwindcss";
 
 @theme {
-  /* Autonomous Kinetic Surface & Brand Palette */
-  --color-surface: #faf8ff;
-  --color-background: #faf8ff;
-  --color-surface-bright: #faf8ff;
-  --color-surface-dim: #d2d9f4;
-  --color-surface-variant: #dae2fd;
+  /* Industrial Precision Surfaces */
+  --color-surface: #f3f3f0;
+  --color-background: #f3f3f0;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e2e6e5;
+  --color-surface-variant: #e8ebe9;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f2f3ff;
-  --color-surface-container: #eaedff;
-  --color-surface-container-high: #e2e7ff;
-  --color-surface-container-highest: #dae2fd;
-  --color-surface-tint: #006398;
+  --color-surface-container-low: #f5f6f4;
+  --color-surface-container: #f5f6f4;
+  --color-surface-container-high: #e8ebe9;
+  --color-surface-container-highest: #dce1df;
+  --color-surface-tint: #d8662d;
 
   --color-canvas-pure: #ffffff;
-  --color-canvas-subtle: #f8fafc;
-  --color-canvas-muted: #f1f5f9;
-  --color-border-grid: #e2e8f0;
-  --color-border-active: #cbd5e1;
+  --color-canvas-subtle: #ecefed;
+  --color-canvas-muted: #e2e6e5;
+  --color-border-grid: #c9cfce;
+  --color-border-active: #929c9e;
 
-  --color-on-surface: #131b2e;
-  --color-on-background: #131b2e;
-  --color-on-surface-variant: #3f4850;
-  --color-outline: #707881;
-  --color-outline-variant: #bfc7d2;
-  --color-inverse-surface: #283044;
-  --color-inverse-on-surface: #eef0ff;
-  --color-inverse-primary: #93ccff;
+  /* Industrial Graphite Typography & Light Technical Console */
+  --color-on-surface: #20272b;
+  --color-on-background: #20272b;
+  --color-on-surface-variant: #485359;
+  --color-outline: #697479;
+  --color-outline-variant: #aab2b3;
+  --color-inverse-surface: #f0f2f0;
+  --color-inverse-on-surface: #243036;
+  --color-inverse-primary: #d8662d;
 
-  --color-primary: #006194;
+  /* Brand & Robotics Domain Accents */
+  --color-primary: #d8662d;
+  --color-primary-hover: #be5420;
   --color-on-primary: #ffffff;
-  --color-primary-container: #007bb9;
-  --color-on-primary-container: #fdfcff;
-  --color-primary-fixed: #cce5ff;
-  --color-primary-fixed-dim: #93ccff;
-  --color-on-primary-fixed: #001d31;
-  --color-on-primary-fixed-variant: #004b73;
+  --color-primary-container: #f8e2d6;
+  --color-on-primary-container: #5c2408;
+  --color-primary-fixed: #f8e2d6;
+  --color-primary-fixed-dim: #f0c9b4;
+  --color-on-primary-fixed: #5c2408;
+  --color-on-primary-fixed-variant: #8d3c14;
 
-  --color-secondary: #0051d5;
+  --color-secondary: #2864a5;
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #316bf3;
-  --color-on-secondary-container: #fefcff;
-  --color-secondary-fixed: #dbe1ff;
-  --color-secondary-fixed-dim: #b4c5ff;
-  --color-on-secondary-fixed: #00174b;
-  --color-on-secondary-fixed-variant: #003ea8;
+  --color-secondary-container: #205288;
+  --color-on-secondary-container: #ffffff;
+  --color-secondary-fixed: #dce8f5;
+  --color-secondary-fixed-dim: #b8d1ec;
+  --color-on-secondary-fixed: #123357;
 
-  --color-tertiary: #00685f;
+  --color-tertiary: #168477;
   --color-on-tertiary: #ffffff;
-  --color-tertiary-container: #008378;
-  --color-on-tertiary-container: #f4fffc;
-  --color-tertiary-fixed: #89f5e7;
-  --color-tertiary-fixed-dim: #6bd8cb;
-  --color-on-tertiary-fixed: #00201d;
-  --color-on-tertiary-fixed-variant: #005049;
+  --color-tertiary-container: #106a5f;
+  --color-on-tertiary-container: #ffffff;
+  --color-tertiary-fixed: #d5ede9;
+  --color-tertiary-fixed-dim: #b2ddd6;
+  --color-on-tertiary-fixed: #0b443d;
 
-  --color-error: #ba1a1a;
+  /* Industrial Mode Semantics */
+  --color-mode-run: #d8662d;
+  --color-mode-drive: #2864a5;
+  --color-mode-fly: #168477;
+
+  /* Functional Industrial Signals */
+  --color-signal-success: #27834b;
+  --color-signal-warning: #d69a25;
+  --color-signal-alert: #c63d32;
+  --color-error: #b52f2b;
   --color-on-error: #ffffff;
-  --color-error-container: #ffdad6;
-  --color-on-error-container: #93000a;
-
-  /* Kinetic Autonomy Mode Colors */
-  --color-mode-run: #0284c7;
-  --color-mode-drive: #2563eb;
-  --color-mode-fly: #0d9488;
-  --color-signal-success: #10b981;
-  --color-signal-warning: #f59e0b;
-  --color-signal-alert: #ef4444;
+  --color-error-container: #fae5e4;
+  --color-on-error-container: #7a1c19;
 
   /* Typography */
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-display: 'Barlow Condensed', system-ui, sans-serif;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Squared Industrial Panel Geometry */
+  --radius-xs: 2px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
+  --radius-xl: 4px;
+  --radius-2xl: 4px;
 }
 
 @layer base {
@@ -93,7 +103,16 @@
   h4 {
     font-family: var(--font-display);
     text-wrap: balance;
+    letter-spacing: -0.01em;
   }
+}
+
+/* Crisp technical drafting grid for engineering panels */
+.industrial-grid {
+  background-image:
+    linear-gradient(to right, rgba(146, 156, 158, 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(146, 156, 158, 0.16) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
 /* Render Angular Material icons using Material Symbols Outlined with Material Icons fallback */
