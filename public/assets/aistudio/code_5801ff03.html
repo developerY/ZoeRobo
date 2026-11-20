@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface": "#faf8ff", "background": "#faf8ff", "secondary-container": "#316bf3", "canvas-muted": "#F1F5F9", "on-error-container": "#93000a", "on-secondary": "#ffffff", "on-surface-variant": "#3f4850", "on-primary-fixed": "#001d31", "on-secondary-fixed-variant": "#003ea8", "surface-bright": "#faf8ff", "on-tertiary-fixed": "#00201d", "canvas-subtle": "#F8FAFC", "surface-container-low": "#f2f3ff", "on-primary-fixed-variant": "#004b73", "outline-variant": "#bfc7d2", "surface-tint": "#006398", "on-surface": "#131b2e", "primary-fixed-dim": "#93ccff", "signal-alert": "#EF4444", "surface-container-highest": "#dae2fd", "secondary": "#0051d5", "canvas-pure": "#FFFFFF", "tertiary-fixed": "#89f5e7", "primary-container": "#007bb9", "inverse-on-surface": "#eef0ff", "on-primary-container": "#fdfcff", "surface-container-lowest": "#ffffff", "signal-warning": "#F59E0B", "on-secondary-container": "#fefcff", "on-tertiary-container": "#f4fffc", "mode-run": "#0284C7", "on-tertiary-fixed-variant": "#005049", "error-container": "#ffdad6", "mode-fly": "#0D9488", "surface-container": "#eaedff", "on-error": "#ffffff", "mode-drive": "#2563EB", "signal-success": "#10B981", "secondary-fixed": "#dbe1ff", "surface-dim": "#d2d9f4", "on-secondary-fixed": "#00174b", "error": "#ba1a1a", "surface-container-high": "#e2e7ff", "on-primary": "#ffffff", "border-grid": "#E2E8F0", "tertiary-container": "#008378", "inverse-surface": "#283044", "border-active": "#CBD5E1", "tertiary-fixed-dim": "#6bd8cb", "on-background": "#131b2e", "outline": "#707881", "on-tertiary": "#ffffff", "primary": "#006194", "inverse-primary": "#93ccff", "secondary-fixed-dim": "#b4c5ff", "surface-variant": "#dae2fd", "primary-fixed": "#cce5ff", "tertiary": "#00685f" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "2.5rem", "gutter": "1.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "space-md": "1rem", "margin-mobile": "1.25rem", "margin": "3rem", "gutter-mobile": "1rem" }, "fontFamily": { "body-md": ["Inter"], "body-lg": ["Inter"], "display-hero": ["Space Grotesk"], "headline-md": ["Space Grotesk"], "label-md": ["JetBrains Mono"], "headline-lg-mobile": ["Space Grotesk"], "headline-sm": ["Space Grotesk"], "body-sm": ["Inter"], "label-lg": ["JetBrains Mono"], "display-hero-mobile": ["Space Grotesk"], "label-sm": ["JetBrains Mono"], "headline-lg": ["Space Grotesk"] }, "fontSize": { "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "500" }], "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }] } } } };</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-body-md text-on-surface"><header class="fixed top-0 left-0 right-0 z-50 bg-canvas-pure/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full px-gutter md:px-margin flex items-center justify-between"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm" data-path="overview" href="#"><img alt="ZoeRobo Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrAhp34KkH3ilVUJurPTUITyTMjTV6qMPzT9AoXodMAMSLa_aYVV2tKBBF47bA_jWZh55zS0q-7-cQ_oX9XCJcIyTYwndd7u5ABsHNtqtrE2eD_-hguYze5Xfz-Vu9eIQvGKcBY_u4fh2aZ04FMipsn5-T6Hw4tNgj5Z5LH0h__VJa-Y6K2mOLHMotJDpgYpEVDZ2MlFAcXIFthA--EwN2wqGXdpt7I2BaY-yB2oaxb49w"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">ZoeRobo</span></a><span class="hidden xl:inline-block font-label-sm text-label-sm text-on-surface-variant bg-canvas-muted px-space-xs py-0.5 rounded">SYS.AUTONOMY // V4.2</span></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="px-space-md py-space-xs rounded font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="overview" href="#">Overview</a><a class="px-space-md py-space-xs rounded font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="firefly-drone" href="#">FireFly Drone</a><a class="px-space-md py-space-xs rounded font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="jag-u-r-robot" href="#">Jag.U.R Robot</a><a class="px-space-md py-space-xs rounded font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="ai-ml-drive" href="#">AI/ML Drive</a><a class="px-space-md py-space-xs rounded font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="info-and-research" href="#">Info & Research</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-block font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" data-path="documentation" href="#">Documentation</a><a class="px-space-md py-space-xs rounded bg-mode-run text-canvas-pure font-label-md text-label-md uppercase tracking-wider shadow-[0_1px_3px_0_rgba(15,23,42,0.04)] hover:bg-primary transition-colors" data-path="contact-labs" href="#">Contact Labs</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- Top Breadcrumb & Status Ribbon -->
+<section class="w-full px-gutter md:px-margin pt-space-md pb-space-xs">
+<div class="flex flex-wrap items-center justify-between gap-space-sm bg-canvas-subtle p-space-sm rounded-lg shadow-sm">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-mode-drive/10 text-mode-drive font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-mode-drive animate-pulse"></span>
+          AUTONOMOUS DRIVE ARCHITECTURE
+        </span>
+<span class="text-outline font-label-sm text-label-sm">//</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SYS_IDENT: DRIVE-CORE-V4.2</span>
+<span class="hidden md:inline text-outline font-label-sm text-label-sm">//</span>
+<span class="hidden md:inline font-label-sm text-label-sm text-signal-success">PIPELINE: TFLITE_TPU_ONLINE</span>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-signal-success"></span> 60.2 FPS VISION</span>
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-mode-run"></span> 1.4W NOMINAL</span>
+</div>
+</div>
+</section>
+<!-- Hero Section: Title, Abstract & Test Track Rig -->
+<section class="w-full px-gutter md:px-margin py-space-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<!-- Text Narrative -->
+<div class="lg:col-span-6 space-y-space-md">
+<div class="space-y-space-xs">
+<div class="inline-block px-space-sm py-1 rounded bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase tracking-wider font-semibold">
+            Edge Intelligence Matrix
+          </div>
+<h1 class="font-headline-lg text-headline-lg lg:font-display-hero lg:text-display-hero text-on-surface tracking-tight">
+            AI/ML Driver: <span class="text-secondary">Edge Intelligence</span> for Autonomous Mobility
+          </h1>
+<p class="font-headline-sm text-headline-sm text-on-surface-variant font-medium">
+            Smartphone-Powered Neural Computing, TensorFlow Lite & Real-Time Computer Vision
+          </p>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+          By offloading complex sensory perception, lane telemetry, and pathing kinematics to ubiquitous consumer smartphone architectures and integrated Edge TPUs, ZoeRobo completely transforms accessibility in autonomous vehicular intelligence.
+        </p>
+<!-- Dynamic Quick Telemetry Bar -->
+<div class="grid grid-cols-3 gap-space-sm p-space-sm bg-canvas-pure rounded-lg shadow-sm">
+<div class="p-space-xs rounded bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-outline block uppercase">Inference</span>
+<span class="font-label-lg text-label-lg font-bold text-secondary">60.2 FPS</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Quantized INT8</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-outline block uppercase">Latency</span>
+<span class="font-label-lg text-label-lg font-bold text-mode-fly">11.4 ms</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Glass-to-Actuator</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-outline block uppercase">Power Draw</span>
+<span class="font-label-lg text-label-lg font-bold text-primary">1.4 Watts</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Mobile Edge TPU</span>
+</div>
+</div>
+<!-- Call to actions -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<a class="px-space-md py-space-sm rounded bg-secondary text-on-secondary font-label-md text-label-md uppercase tracking-wider shadow-sm hover:bg-secondary-container transition-all flex items-center gap-space-xs" href="#pixelopolis-installation">
+<span class="material-symbols-outlined text-[18px]">developer_board</span>
+            Pixelopolis Case Study
+          </a>
+<a class="px-space-md py-space-sm rounded bg-canvas-pure text-on-surface font-label-md text-label-md uppercase tracking-wider shadow-sm hover:bg-surface-container transition-all flex items-center gap-space-xs" href="#lego-concept">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+            View LEGO® Concept
+          </a>
+<a class="px-space-md py-space-sm rounded bg-surface-container-high text-primary font-label-md text-label-md uppercase tracking-wider hover:bg-surface-variant transition-all flex items-center gap-space-xs" href="https://github.com" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">code</span>
+            GitHub Repo
+          </a>
+</div>
+</div>
+<!-- Hero Visual Rig: Autonomous Mini-Car Rig on Track -->
+<div class="lg:col-span-6 relative">
+<div class="relative rounded-lg overflow-hidden shadow-lg bg-canvas-pure">
+<img alt="Autonomous miniature vehicle running on-board mobile compute on miniature urban track" class="w-full h-[440px] object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKun81VQIOfkKLbZnBkdhuifVz3z76XaVYE14sLFkrCKtyYneM9nE_GZjasGvRWDlyPzebyP2zmiwqGZNXqkBfmBZ7WiXFo_9pRjmZfhRdDEKxWh5xbpJY4MFjZ5FIMHeBiPjb0THPg4fkmtoXZk5uyrQINpwhXC5G7GCgTmer2SoGZvDsi4WqtVgC45_3BZesVWPl79bzh8Bva3BGM-YX3_aRtK5PxXcQoY78InEu"/>
+<!-- Live Telemetry Overlay HUD -->
+<div class="absolute top-space-sm left-space-sm right-space-sm flex justify-between items-start pointer-events-none">
+<div class="bg-inverse-surface/85 backdrop-blur-md px-space-sm py-1 rounded text-inverse-on-surface font-label-sm text-label-sm flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-signal-success animate-ping"></span>
+              REC // TRACK_URBAN_GRID_04
+            </div>
+<div class="bg-inverse-surface/85 backdrop-blur-md px-space-sm py-1 rounded text-inverse-on-surface font-label-sm text-label-sm">
+              LAT: 42.3601 N | LON: 71.0942 W
+            </div>
+</div>
+<!-- Bottom Telemetry Card overlay -->
+<div class="absolute bottom-space-sm left-space-sm right-space-sm p-space-sm rounded bg-canvas-pure/95 backdrop-blur-md shadow-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded bg-mode-drive/10 flex items-center justify-center text-mode-drive">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight">YLabZ Autonomous Platform</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Mobile Neural Rig + Monocular SLAM & Lane Assist</div>
+</div>
+</div>
+<div class="hidden sm:flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-signal-success font-semibold">TFLITE CORE: 100% LOCK</span>
+<span class="font-label-sm text-label-sm text-outline">ST-09 STEERING SERVO ACTIVE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Three Core Pillars of Low-Cost Edge Autonomy -->
+<section class="w-full px-gutter md:px-margin py-space-lg bg-surface-container-low">
+<div class="max-w-4xl mb-space-lg">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Empirical Hardware Architecture</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">Core Autonomous Vehicle Capabilities</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+        Democratizing AV research without multi-thousand dollar bulky trunk-mounted industrial computers or liquid-cooled workstation servers.
+      </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Pillar 1 -->
+<div class="bg-canvas-pure p-space-lg rounded-lg shadow-sm space-y-space-md flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded bg-mode-run/10 text-mode-run flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">visibility</span>
+</div>
+<div class="font-label-sm text-label-sm text-mode-run font-bold">MODULE 01 // PERCEPTION</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Neural Vision Pipeline</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            MobileNet and tailored YOLO object detection primitives running locked at 60 FPS directly on the smartphone Edge TPU neural accelerator. Instant inference categorizes traffic lights, stop boards, dynamic urban pedestrians, and lane contours.
+          </p>
+</div>
+<div class="p-space-sm bg-surface-container rounded font-label-sm text-label-sm flex justify-between items-center text-on-surface">
+<span>MODEL: MOBILENET-V3-INT8</span>
+<span class="text-signal-success font-bold">12ms</span>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="bg-canvas-pure p-space-lg rounded-lg shadow-sm space-y-space-md flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded bg-mode-drive/10 text-mode-drive flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">alt_route</span>
+</div>
+<div class="font-label-sm text-label-sm text-mode-drive font-bold">MODULE 02 // KINEMATICS</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Real-Time Path Finding</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Sensor fusion synthesizing monocular visual SLAM, smartphone 6-DOF IMU arrays, and GPS. Instant lane centerline retention with reactive avoidance geometry navigating complex intersections and dynamic track obstacles.
+          </p>
+</div>
+<div class="p-space-sm bg-surface-container rounded font-label-sm text-label-sm flex justify-between items-center text-on-surface">
+<span>TRAJECTORY PLANNER: BEZIER</span>
+<span class="text-mode-drive font-bold">±1.2cm ACCURACY</span>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="bg-canvas-pure p-space-lg rounded-lg shadow-sm space-y-space-md flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded bg-tertiary/10 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">payments</span>
+</div>
+<div class="font-label-sm text-label-sm text-tertiary font-bold">MODULE 03 // DISRUPTION</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Ultra-Low Cost Autonomy</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Bypassing $15,000+ automotive industrial LiDAR-heavy configurations. ZoeRobo demonstrates that production Android handsets and modular microcontrollers offer sufficient TOPS to solve rigorous autonomous Level-3 mobility problems.
+          </p>
+</div>
+<div class="p-space-sm bg-surface-container rounded font-label-sm text-label-sm flex justify-between items-center text-on-surface">
+<span>HARDWARE COST REDUCTION</span>
+<span class="text-mode-fly font-bold">-92% BOM</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Sensor & Vision Telemetry Demonstration Pipeline -->
+<section class="w-full px-gutter md:px-margin py-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Real-Time Pipeline Diagram (Interactive Component) -->
+<div class="lg:col-span-8 bg-canvas-pure p-space-lg rounded-lg shadow-sm">
+<div class="flex flex-wrap items-center justify-between pb-space-md">
+<div>
+<div class="font-label-sm text-label-sm uppercase text-secondary font-semibold">Active Sensor Topology</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Edge TPU & TFLite Kinematic Loop</h3>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-space-sm py-1 bg-surface-container text-on-surface rounded font-label-sm text-label-sm hover:bg-surface-container-high transition-colors" id="btn-toggle-feed" type="button">
+              SIMULATE HAZARD
+            </button>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-signal-success">
+<span class="w-2 h-2 rounded-full bg-signal-success"></span> SYNCED
+            </span>
+</div>
+</div>
+<!-- Custom SVG Architectural Flowchart -->
+<div class="w-full bg-canvas-subtle p-space-md rounded-lg overflow-x-auto">
+<svg class="w-full min-w-[620px] h-48" fill="none" viewbox="0 0 760 190" xmlns="http://www.w3.org/2000/svg">
+<!-- Node 1: Sensor Ingestion -->
+<rect class="drop-shadow-sm" fill="#FFFFFF" height="140" rx="8" width="160" x="10" y="25"></rect>
+<text fill="#006194" font-family="JetBrains Mono" font-size="11" font-weight="600" x="25" y="55">INPUT SOURCE</text>
+<text fill="#131B2E" font-family="Space Grotesk" font-size="16" font-weight="600" x="25" y="80">Smartphone Optic</text>
+<text fill="#707881" font-family="Inter" font-size="12" x="25" y="105">12MP HDR Camera</text>
+<text fill="#707881" font-family="Inter" font-size="12" x="25" y="125">6-Axis Gyro/Accel</text>
+<text fill="#10B981" font-family="JetBrains Mono" font-size="11" x="25" y="145">60Hz Native Feed</text>
+<!-- Connector 1 -->
+<path d="M170 95 L220 95" stroke="#CBD5E1" stroke-dasharray="4 4" stroke-width="2"></path>
+<polygon fill="#0284C7" points="220,90 228,95 220,100"></polygon>
+<!-- Node 2: Mobile Neural Core Edge TPU -->
+<rect class="drop-shadow-sm" fill="#FFFFFF" height="160" rx="8" width="220" x="230" y="15"></rect>
+<rect fill="#0284C7" height="6" rx="3" width="220" x="230" y="15"></rect>
+<text fill="#0284C7" font-family="JetBrains Mono" font-size="11" font-weight="600" x="245" y="48">EDGE COMPUTE (TPU)</text>
+<text fill="#131B2E" font-family="Space Grotesk" font-size="17" font-weight="700" x="245" y="75">TensorFlow Lite</text>
+<text fill="#3F4850" font-family="Inter" font-size="12" x="245" y="100">• MobileNet-SSD Object Detect</text>
+<text fill="#3F4850" font-family="Inter" font-size="12" x="245" y="120">• Semantic Road Segmentation</text>
+<text fill="#3F4850" font-family="Inter" font-size="12" x="245" y="140">• Stop Sign & Signal Classifier</text>
+<text fill="#0D9488" font-family="JetBrains Mono" font-size="11" x="245" y="160">Core Temp: 38.4°C</text>
+<!-- Connector 2 -->
+<path d="M450 95 L500 95" stroke="#CBD5E1" stroke-dasharray="4 4" stroke-width="2"></path>
+<polygon fill="#0051D5" points="500,90 508,95 500,100"></polygon>
+<!-- Node 3: Micro-Kinematic Actuation -->
+<rect class="drop-shadow-sm" fill="#FFFFFF" height="140" rx="8" width="230" x="510" y="25"></rect>
+<text fill="#0051D5" font-family="JetBrains Mono" font-size="11" font-weight="600" x="525" y="55">PWM DRIVE SUBSYSTEM</text>
+<text fill="#131B2E" font-family="Space Grotesk" font-size="16" font-weight="600" x="525" y="80">ESP32 / Servo Controller</text>
+<text fill="#707881" font-family="Inter" font-size="12" x="525" y="105">UART/BLE Telemetry Bridge</text>
+<text fill="#707881" font-family="Inter" font-size="12" x="525" y="125">Ackermann Steering Vector</text>
+<text fill="#10B981" font-family="JetBrains Mono" font-size="11" x="525" y="145">PID Loop @ 200 Hz</text>
+</svg>
+</div>
+<div class="mt-space-md grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-xs">
+<div class="p-space-xs bg-canvas-subtle rounded">
+<span class="font-label-sm text-label-sm text-outline block">CAMERA RESOLUTION</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">1280 x 720 @ 60p</span>
+</div>
+<div class="p-space-xs bg-canvas-subtle rounded">
+<span class="font-label-sm text-label-sm text-outline block">TPU LATENCY</span>
+<span class="font-label-md text-label-md text-signal-success font-semibold">8.3 ms</span>
+</div>
+<div class="p-space-xs bg-canvas-subtle rounded">
+<span class="font-label-sm text-label-sm text-outline block">CLASSIFIER CONF.</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">98.4% Mean</span>
+</div>
+<div class="p-space-xs bg-canvas-subtle rounded">
+<span class="font-label-sm text-label-sm text-outline block">CHASSIS PAYLOAD</span>
+<span class="font-label-md text-label-md text-secondary font-semibold">320g Total</span>
+</div>
+</div>
+</div>
+<!-- Real-Time Telemetry Terminal Box -->
+<div class="lg:col-span-4 bg-inverse-surface text-inverse-on-surface p-space-lg rounded-lg shadow-sm flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider">LIVE TPU LOG CONSOLE</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-mode-run/20 text-primary-fixed-dim">TTY0 / DEV</span>
+</div>
+<div class="font-label-sm text-label-sm text-inverse-on-surface/90 space-y-1 font-mono h-56 overflow-hidden" id="telemetry-log">
+<div class="text-signal-success">[0.002s] TFLite delegate instantiated: Pixel Neural Core</div>
+<div class="text-canvas-muted">[0.015s] Initializing camera frame queue (YUV_420_888)</div>
+<div class="text-canvas-muted">[0.024s] MobileNet_v3_quant INT8 mapped in memory</div>
+<div class="text-primary-fixed-dim">[0.038s] Detected: LANE_DIVIDER_LEFT (conf: 0.94)</div>
+<div class="text-primary-fixed-dim">[0.049s] Detected: LANE_DIVIDER_RIGHT (conf: 0.96)</div>
+<div class="text-signal-warning">[0.062s] Path: Centerline delta 0.04m, correcting steer</div>
+<div class="text-signal-success">[0.075s] Signal detected: TRAFFIC_LIGHT_GREEN</div>
+<div class="text-canvas-muted">[0.088s] Actuation packet sent: THROTTLE 42%, STEER +2.1°</div>
+</div>
+</div>
+<div class="pt-space-md mt-space-sm border-t border-inverse-surface/40 flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-inverse-on-surface/70">COMM PROTOCOL: BLE 5.2</span>
+<span class="text-tertiary-fixed font-bold">STATE: AUTONOMOUS</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Project 1: Self-Driving LEGO® Car Concept -->
+<section class="w-full px-gutter md:px-margin py-space-xl bg-canvas-subtle" id="lego-concept">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 space-y-space-md order-2 lg:order-1">
+<div class="space-y-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-mode-run/10 text-mode-run font-label-sm text-label-sm">
+            FEATURED PROJECT 01
+          </span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+            Self-Driving LEGO® Car Concept
+          </h2>
+<p class="font-headline-sm text-headline-sm text-mode-run">
+            AI/ML & GPS Navigation Powered by Your Smartphone
+          </p>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Pioneered by ZoeWave, this prototype demonstrates how simple toys, standard consumer building blocks, and ubiquitous smartphones converge into an educational powerhouse for autonomous navigation.
+        </p>
+<div class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant bg-canvas-pure p-space-md rounded-lg shadow-sm">
+<div class="flex items-center gap-space-sm text-on-surface font-semibold">
+<span class="material-symbols-outlined text-mode-run text-[20px]">extension</span>
+            Onboard Smartphone Rig Features:
+          </div>
+<ul class="list-disc list-inside space-y-1 pl-space-xs">
+<li>Zero high-end desktop requirements: fully self-contained edge device.</li>
+<li>Monocular visual odometry fused with built-in handset GPS kinematics.</li>
+<li>Direct Bluetooth Low Energy integration with LEGO Mindstorms / Technic hubs.</li>
+<li>Comprehensive Lane detection, pedestrian obstacle stopping, and parking maneuvers.</li>
+</ul>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<a class="px-space-md py-space-sm rounded bg-mode-run text-canvas-pure font-label-md text-label-md uppercase tracking-wider shadow-sm hover:bg-primary transition-all flex items-center gap-space-xs" href="https://zoewave.medium.com/self-driving-lego-car-concept-c3a50e72cccc" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">article</span>
+            Read ZoeWave Medium Article
+          </a>
+<a class="px-space-md py-space-sm rounded bg-canvas-pure text-on-surface font-label-md text-label-md uppercase tracking-wider shadow-sm hover:bg-surface-container transition-all flex items-center gap-space-xs" href="https://zoewave.medium.com/self-driving-lego-car-concept-c3a50e72cccc" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">video_library</span>
+            Concept Videos
+          </a>
+</div>
+</div>
+<!-- Visual Card with schematic context -->
+<div class="lg:col-span-7 order-1 lg:order-2">
+<div class="bg-canvas-pure p-space-lg rounded-lg shadow-md space-y-space-md">
+<div class="flex justify-between items-center pb-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase">CHASSIS SCHEMATIC // LEGO MODULAR FRAME</span>
+<span class="font-label-sm text-label-sm text-mode-run">TECH PROFILE: ED-01</span>
+</div>
+<div class="relative w-full h-80 rounded overflow-hidden bg-canvas-muted">
+<img class="w-full h-full object-cover" data-alt="Close-up engineering view of a LEGO Technic modular robotic autonomous car chassis equipped with a smartphone mount on top and micro servos, clean industrial white cleanroom background with technical telemetry overlays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfyYtgTXtBMRr8ouojz0rLF7iAq2aVtOlX12-ppya2VakFbPHYYMJNNINwQF1P0pEw7udPmFUyZqtwYbREhVmrpueEAZuw4X0T4qwN5Mk3NjqEsdIAfZOAKnwQxFaqhHvgeZ4Zi-YkjleEHzPN9aL550lADxeg4mB5q44rmhCHHNlsJqGfKaGpIRjU3f4CSI0rNKpn7LFlNO4KIqArOCrbRHzEI9-WLKrHxoxS1VD3"/>
+<div class="absolute bottom-space-xs left-space-xs bg-canvas-pure/90 backdrop-blur-md px-space-sm py-1 rounded text-on-surface font-label-sm text-label-sm shadow-sm">
+              CAD PROTOTYPE: LEGO TECHNIC 4WD REAR DIFF + SMARTPHONE DOCK
+            </div>
+</div>
+<div class="grid grid-cols-3 gap-space-sm font-label-sm text-label-sm text-center">
+<div class="p-space-xs rounded bg-surface-container-low">
+<span class="text-outline block">COMPUTE</span>
+<span class="font-bold text-on-surface">Android Core</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-low">
+<span class="text-outline block">POWER SOURCE</span>
+<span class="font-bold text-on-surface">Handset Internal Li-Po</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-low">
+<span class="text-outline block">COMM LINK</span>
+<span class="font-bold text-on-surface">Nordic BLE UART</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Project 2: Pixelopolis Autonomous Installation -->
+<section class="w-full px-gutter md:px-margin py-space-xl bg-canvas-pure" id="pixelopolis-installation">
+<div class="max-w-4xl mx-auto space-y-space-lg">
+<div class="text-center space-y-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">
+          FEATURED PROJECT 02 // RESEARCH COLLABORATION
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+          Pixelopolis Autonomous Installation
+        </h2>
+<p class="font-headline-sm text-headline-sm text-secondary">
+          Self-Driving Miniature Cars Powered by TensorFlow Lite
+        </p>
+</div>
+<!-- Verbatim Quote Callout from Reference Text -->
+<div class="p-space-xl rounded-lg bg-surface-container-low shadow-sm relative">
+<span class="material-symbols-outlined absolute top-space-md right-space-md text-surface-container-highest text-[64px] pointer-events-none select-none">format_quote</span>
+<div class="relative z-10 space-y-space-md">
+<p class="font-headline-sm text-headline-sm text-on-surface italic leading-relaxed">
+            “Pixelopolis is an interactive installation that showcases self-driving miniature cars powered by <a class="text-primary hover:underline font-semibold" href="https://www.tensorflow.org/lite" rel="noopener noreferrer" target="_blank">TensorFlow Lite</a>. Each car is outfitted with its own Pixel phone, which used its camera to detect and understand signals from the world around it. In order to sense lanes, avoid collisions and read traffic signs, the phone uses machine learning running on the <a class="text-primary hover:underline font-semibold" href="https://blog.google/products/pixel/pixel-4/" rel="noopener noreferrer" target="_blank">Pixel Neural Core</a>, which contains a version of an <a class="text-primary hover:underline font-semibold" href="https://cloud.google.com/edge-tpu/" rel="noopener noreferrer" target="_blank">Edge TPU</a>.”
+          </p>
+<div class="flex items-center justify-between pt-space-xs border-t border-surface-container-high">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold text-label-sm font-label-sm">
+                TF
+              </div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-bold">TensorFlow Lite Official Showcase</div>
+<div class="font-label-sm text-label-sm text-outline">Published on Google's TensorFlow Engineering Blog</div>
+</div>
+</div>
+<a class="px-space-md py-space-xs rounded bg-canvas-pure text-primary font-label-md text-label-md uppercase tracking-wider shadow-sm hover:bg-surface-container-high transition-colors flex items-center gap-1" href="https://blog.tensorflow.org/2020/07/pixelopolis-self-driving-car-demo-tensorflow-lite.html" rel="noopener noreferrer" target="_blank">
+              Read Research Post
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Bento Cards: Installation Highlights -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter pt-space-sm">
+<div class="bg-surface-container-low p-space-md rounded-lg shadow-sm space-y-space-xs">
+<div class="flex items-center gap-2 text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[18px]">traffic</span>
+            REAL-WORLD SIGNS
+          </div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Traffic Light Perception</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Detects state changes on custom miniaturized multi-phase LEDs at test track intersections with sub-15ms recognition.
+          </p>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg shadow-sm space-y-space-xs">
+<div class="flex items-center gap-2 text-mode-drive font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[18px]">car_crash</span>
+            ACTIVE SAFETY
+          </div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Dynamic Collision Guard</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Continuously computes time-to-impact (TTI) for lead cars, pedestrians, and sudden obstacles within the urban street grid.
+          </p>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg shadow-sm space-y-space-xs">
+<div class="flex items-center gap-2 text-mode-fly font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[18px]">memory</span>
+            EDGE TPU
+          </div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Pixel Neural Core</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Leveraging hardware INT8 quantization to sustain high inferencing throughput without thermal throttling over hours of continuous driving.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Deep-Dive: Specs & Matrix Comparison -->
+<section class="w-full px-gutter md:px-margin py-space-xl bg-canvas-subtle">
+<div class="max-w-5xl mx-auto space-y-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Benchmarking & Architecture</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">Autonomous Compute Matrix Comparison</h2>
+</div>
+<div class="font-label-sm text-label-sm text-outline">UPDATED LABS BENCHMARK // Q1 2025</div>
+</div>
+<!-- Architectural Specs Table -->
+<div class="bg-canvas-pure rounded-lg shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container text-on-surface font-label-sm text-label-sm uppercase tracking-wider">
+<tr>
+<th class="p-space-md">Specification</th>
+<th class="p-space-md text-secondary font-bold">ZoeRobo Smartphone / TPU</th>
+<th class="p-space-md">Conventional Workstation AV</th>
+<th class="p-space-md">Standard Microcontroller</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<tr class="hover:bg-canvas-subtle transition-colors">
+<td class="p-space-md font-semibold text-on-surface">Vision Inference Latency</td>
+<td class="p-space-md font-label-md text-label-md text-signal-success font-bold">8.3 ms (Edge TPU)</td>
+<td class="p-space-md font-label-md text-label-md text-on-surface-variant">14.2 ms (Desktop GPU)</td>
+<td class="p-space-md font-label-md text-label-md text-outline">180 ms (MCU Soft-Math)</td>
+</tr>
+<tr class="hover:bg-canvas-subtle transition-colors">
+<td class="p-space-md font-semibold text-on-surface">Total Hardware BOM</td>
+<td class="p-space-md font-label-md text-label-md text-secondary font-bold">< $400 USD (All inclusive)</td>
+<td class="p-space-md font-label-md text-label-md text-on-surface-variant">$8,000 - $25,000 USD</td>
+<td class="p-space-md font-label-md text-label-md text-outline">< $50 USD (Zero ML capacity)</td>
+</tr>
+<tr class="hover:bg-canvas-subtle transition-colors">
+<td class="p-space-md font-semibold text-on-surface">Power Consumption</td>
+<td class="p-space-md font-label-md text-label-md text-signal-success font-bold">1.4 W avg.</td>
+<td class="p-space-md font-label-md text-label-md text-on-surface-variant">350 W - 800 W (Thermal drain)</td>
+<td class="p-space-md font-label-md text-label-md text-outline">0.4 W</td>
+</tr>
+<tr class="hover:bg-canvas-subtle transition-colors">
+<td class="p-space-md font-semibold text-on-surface">Built-in Sensor Cluster</td>
+<td class="p-space-md font-label-md text-label-md text-on-surface">Camera + IMU + GPS + 5G Telematics</td>
+<td class="p-space-md font-label-md text-label-md text-on-surface-variant">External discrete USB/CAN rigs</td>
+<td class="p-space-md font-label-md text-label-md text-outline">None / External sensors only</td>
+</tr>
+<tr class="hover:bg-canvas-subtle transition-colors">
+<td class="p-space-md font-semibold text-on-surface">Software Framework</td>
+<td class="p-space-md font-label-md text-label-md text-primary font-bold">TensorFlow Lite + ROS2 Android</td>
+<td class="p-space-md font-label-md text-label-md text-on-surface-variant">Autoware / Apollo / CUDA</td>
+<td class="p-space-md font-label-md text-label-md text-outline">FreeRTOS / Bare Metal</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Callout / Next Steps Action Banner -->
+<section class="w-full px-gutter md:px-margin py-space-xl">
+<div class="bg-gradient-to-r from-mode-drive/10 via-mode-run/10 to-mode-fly/10 p-space-xl rounded-lg shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<div class="space-y-space-xs max-w-2xl">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">DEPLOYMENT READY</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Ready to Build Your Autonomous Edge Driver?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Access the full open-source TensorFlow Lite model weights, Android camera harness, and UART motor driver bridges developed for ZoeRobo platforms.
+        </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-space-sm w-full md:w-auto">
+<a class="w-full sm:w-auto px-space-lg py-space-sm rounded bg-secondary text-on-secondary font-label-md text-label-md uppercase tracking-wider text-center shadow-sm hover:bg-secondary-container transition-all" href="https://blog.tensorflow.org/2020/07/pixelopolis-self-driving-car-demo-tensorflow-lite.html" rel="noopener noreferrer" target="_blank">
+          TensorFlow Blog
+        </a>
+<a class="w-full sm:w-auto px-space-lg py-space-sm rounded bg-canvas-pure text-on-surface font-label-md text-label-md uppercase tracking-wider text-center shadow-sm hover:bg-surface-container transition-all" href="https://zoewave.medium.com/self-driving-lego-car-concept-c3a50e72cccc" rel="noopener noreferrer" target="_blank">
+          ZoeWave Article
+        </a>
+</div>
+</div>
+</section>
+<!-- Client-side script for micro-interaction in the simulated terminal -->
+<script>
+    (function() {
+      const btnToggle = document.getElementById('btn-toggle-feed');
+      const logContainer = document.getElementById('telemetry-log');
+      
+      if (!btnToggle || !logContainer) return;
+
+      const hazardEvents = [
+        '<div class="text-signal-alert font-bold">[0.104s] ! HAZARD DETECTED: MINIATURE PEDESTRIAN IN LANE</div>',
+        '<div class="text-signal-alert">[0.112s] EMERGENCY BRAKING ENGAGED: PWM DUTY -> 0%</div>',
+        '<div class="text-signal-warning">[0.128s] Distance to Obstacle: 14.2cm | Clearance wait...</div>',
+        '<div class="text-signal-success">[0.210s] Obstacle cleared. Resuming trajectory @ 30% throttle</div>'
+      ];
+
+      btnToggle.addEventListener('click', function() {
+        let i = 0;
+        const interval = setInterval(() => {
+          if (i < hazardEvents.length) {
+            const entry = document.createElement('div');
+            entry.innerHTML = hazardEvents[i];
+            logContainer.appendChild(entry.firstChild);
+            logContainer.scrollTop = logContainer.scrollHeight;
+            i++;
+          } else {
+            clearInterval(interval);
+          }
+        }, 320);
+      });
+    })();
+  </script>
+</div></main><footer class="w-full bg-canvas-subtle mt-space-xl"><div class="w-full px-gutter md:px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter mb-space-xl"><div class="lg:col-span-4 space-y-space-md"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface">ZoeRobo Engineering</span></div><p class="font-headline-md text-headline-md text-primary max-w-sm">We make robots that Run, Drive & Fly.</p><p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">Empirical hardware synthesis for extreme autonomy, kinematic balance, and distributed cybernetic intelligence.</p><div class="flex items-center gap-space-xs pt-space-xs"><span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-mode-run/10 text-mode-run font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-mode-run animate-pulse"></span>RUN</span><span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-mode-drive/10 text-mode-drive font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-mode-drive animate-pulse"></span>DRIVE</span><span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-mode-fly/10 text-mode-fly font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-mode-fly animate-pulse"></span>FLY</span></div></div><div class="lg:col-span-2 space-y-space-sm"><div class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Kinematic Matrix</div><ul class="space-y-space-xs"><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-mode-fly text-[16px]">flight</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-mode-fly transition-colors" data-path="firefly-drone" href="#">FireFly™ Aerial UAS</a></li><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-mode-run text-[16px]">precision_manufacturing</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-mode-run transition-colors" data-path="jag-u-r-robot" href="#">Jag.U.R™ Quadruped</a></li><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-mode-drive text-[16px]">directions_car</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-mode-drive transition-colors" data-path="ai-ml-drive" href="#">AV Ground Drive Platform</a></li><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary text-[16px]">memory</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-tertiary transition-colors" data-path="documentation" href="#">ROS2 / Telematics Stack</a></li></ul></div><div class="lg:col-span-3 space-y-space-sm"><div class="font-label-sm text-label-sm uppercase text-outline tracking-wider">YLabZ Research Core</div><ul class="space-y-space-xs font-label-md text-label-md text-on-surface-variant"><li class="flex items-center justify-between p-space-xs bg-canvas-pure rounded"><span>Edge TPU Neural Pipeline</span><span class="text-signal-success font-label-sm text-label-sm">ACTIVE</span></li><li class="flex items-center justify-between p-space-xs bg-canvas-pure rounded"><span>DeepSeek LLM Local Guidance</span><span class="text-signal-success font-label-sm text-label-sm">0.12ms</span></li><li class="flex items-center justify-between p-space-xs bg-canvas-pure rounded"><span>TensorFlow Lite Kinematics</span><span class="text-on-surface font-label-sm text-label-sm">INT8</span></li><li class="flex items-center justify-between p-space-xs bg-canvas-pure rounded"><span>YLabZ Hardware Telemetry</span><span class="text-primary font-label-sm text-label-sm">v3.8</span></li></ul></div><div class="lg:col-span-3 space-y-space-sm"><div class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Developer Dispatch</div><p class="font-body-sm text-body-sm text-on-surface-variant">Receive direct empirical updates, SDK kernel patches, and ROS2 modules from our field robotics engineers.</p><div class="flex flex-col gap-space-xs"><input class="px-space-md py-space-xs rounded bg-canvas-pure text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:bg-canvas-pure shadow-[0_1px_3px_0_rgba(15,23,42,0.04)]" placeholder="developer@institution.edu" type="email"/><button class="w-full px-space-md py-space-xs rounded bg-secondary text-on-secondary font-label-md text-label-md uppercase tracking-wider hover:bg-secondary-container transition-colors" type="button">Subscribe Feed</button></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md font-label-sm text-label-sm text-outline"><div class="flex items-center gap-space-md"><span>© 2025 ZoeRobo Systems Inc. All hardware and software patents reserved.</span></div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" data-path="info-and-research" href="#">Laboratory Specs</a><a class="hover:text-on-surface transition-colors" data-path="documentation" href="#">API Reference</a><a class="hover:text-on-surface transition-colors" data-path="contact-labs" href="#">Field Deployment</a></div></div></div></footer></body></html>

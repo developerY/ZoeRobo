@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface": "#faf8ff", "background": "#faf8ff", "secondary-container": "#316bf3", "canvas-muted": "#F1F5F9", "on-error-container": "#93000a", "on-secondary": "#ffffff", "on-surface-variant": "#3f4850", "on-primary-fixed": "#001d31", "on-secondary-fixed-variant": "#003ea8", "surface-bright": "#faf8ff", "on-tertiary-fixed": "#00201d", "canvas-subtle": "#F8FAFC", "surface-container-low": "#f2f3ff", "on-primary-fixed-variant": "#004b73", "outline-variant": "#bfc7d2", "surface-tint": "#006398", "on-surface": "#131b2e", "primary-fixed-dim": "#93ccff", "signal-alert": "#EF4444", "surface-container-highest": "#dae2fd", "secondary": "#0051d5", "canvas-pure": "#FFFFFF", "tertiary-fixed": "#89f5e7", "primary-container": "#007bb9", "inverse-on-surface": "#eef0ff", "on-primary-container": "#fdfcff", "surface-container-lowest": "#ffffff", "signal-warning": "#F59E0B", "on-secondary-container": "#fefcff", "on-tertiary-container": "#f4fffc", "mode-run": "#0284C7", "on-tertiary-fixed-variant": "#005049", "error-container": "#ffdad6", "mode-fly": "#0D9488", "surface-container": "#eaedff", "on-error": "#ffffff", "mode-drive": "#2563EB", "signal-success": "#10B981", "secondary-fixed": "#dbe1ff", "surface-dim": "#d2d9f4", "on-secondary-fixed": "#00174b", "error": "#ba1a1a", "surface-container-high": "#e2e7ff", "on-primary": "#ffffff", "border-grid": "#E2E8F0", "tertiary-container": "#008378", "inverse-surface": "#283044", "border-active": "#CBD5E1", "tertiary-fixed-dim": "#6bd8cb", "on-background": "#131b2e", "outline": "#707881", "on-tertiary": "#ffffff", "primary": "#006194", "inverse-primary": "#93ccff", "secondary-fixed-dim": "#b4c5ff", "surface-variant": "#dae2fd", "primary-fixed": "#cce5ff", "tertiary": "#00685f" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "2.5rem", "gutter": "1.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "space-md": "1rem", "margin-mobile": "1.25rem", "margin": "3rem", "gutter-mobile": "1rem" }, "fontFamily": { "body-md": ["Inter"], "body-lg": ["Inter"], "display-hero": ["Space Grotesk"], "headline-md": ["Space Grotesk"], "label-md": ["JetBrains Mono"], "headline-lg-mobile": ["Space Grotesk"], "headline-sm": ["Space Grotesk"], "body-sm": ["Inter"], "label-lg": ["JetBrains Mono"], "display-hero-mobile": ["Space Grotesk"], "label-sm": ["JetBrains Mono"], "headline-lg": ["Space Grotesk"] }, "fontSize": { "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "500" }], "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }] } } } };</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-body-md text-on-surface"><header class="fixed top-0 left-0 right-0 z-50 bg-canvas-pure/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full px-gutter md:px-margin flex items-center justify-between"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm" data-path="overview" href="#"><img alt="ZoeRobo Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrAhp34KkH3ilVUJurPTUITyTMjTV6qMPzT9AoXodMAMSLa_aYVV2tKBBF47bA_jWZh55zS0q-7-cQ_oX9XCJcIyTYwndd7u5ABsHNtqtrE2eD_-hguYze5Xfz-Vu9eIQvGKcBY_u4fh2aZ04FMipsn5-T6Hw4tNgj5Z5LH0h__VJa-Y6K2mOLHMotJDpgYpEVDZ2MlFAcXIFthA--EwN2wqGXdpt7I2BaY-yB2oaxb49w"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">ZoeRobo</span></a><span class="hidden xl:inline-block font-label-sm text-label-sm text-on-surface-variant bg-canvas-muted px-space-xs py-0.5 rounded">SYS.AUTONOMY // V4.2</span></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="px-space-md py-space-xs rounded font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="overview" href="#">Overview</a><a class="px-space-md py-space-xs rounded font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="firefly-drone" href="#">FireFly Drone</a><a class="px-space-md py-space-xs rounded font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="jag-u-r-robot" href="#">Jag.U.R Robot</a><a class="px-space-md py-space-xs rounded font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="ai-ml-drive" href="#">AI/ML Drive</a><a class="px-space-md py-space-xs rounded font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="info-and-research" href="#">Info & Research</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-block font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" data-path="documentation" href="#">Documentation</a><a class="px-space-md py-space-xs rounded bg-mode-run text-canvas-pure font-label-md text-label-md uppercase tracking-wider shadow-[0_1px_3px_0_rgba(15,23,42,0.04)] hover:bg-primary transition-colors" data-path="contact-labs" href="#">Contact Labs</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- Top Technical Breadcrumb & Live Subsystem Strip -->
+<section class="w-full px-gutter md:px-margin pt-space-md pb-space-xs">
+<div class="flex flex-wrap items-center justify-between gap-space-sm bg-canvas-pure p-space-sm rounded-lg shadow-sm">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-mode-run/10 text-mode-run font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-mode-run animate-ping"></span>
+          SYS.RUN // ONLINE
+        </span>
+<span class="text-outline-variant font-label-sm text-label-sm">/</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">UNIT-04 TERRA-MECH EDITION</span>
+<span class="text-outline-variant font-label-sm text-label-sm">/</span>
+<span class="font-label-sm text-label-sm text-outline">LOC: OUTDOOR ROBOTICS TEST FACILITY</span>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="text-signal-success font-bold">99.8%</span>
+<span class="text-outline">SLIP GAIT STABILITY</span>
+</div>
+<div class="hidden sm:flex items-center gap-1">
+<span class="text-secondary font-bold">18 DOF</span>
+<span class="text-outline">ACTIVE DORSAL</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-signal-warning font-bold">58°C</span>
+<span class="text-outline">ACTUATOR BUS</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Hero Architecture Section -->
+<section class="w-full px-gutter md:px-margin py-space-md">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-stretch">
+<!-- Hero Narrative & Acronym Breakdown -->
+<div class="lg:col-span-6 flex flex-col justify-between space-y-space-lg bg-canvas-pure p-space-lg rounded-xl shadow-sm">
+<div class="space-y-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded bg-surface-container-high text-mode-run font-label-md text-label-md uppercase tracking-wider font-bold">
+              Autonomous Quadruped Platform
+            </span>
+<span class="px-space-xs py-1 rounded bg-canvas-muted text-on-surface-variant font-label-sm text-label-sm">
+              MIL-STD-810H REF
+            </span>
+</div>
+<div class="space-y-space-xs">
+<h1 class="font-display-hero text-display-hero text-on-surface tracking-tight leading-none">
+              Jag.U.R<span class="text-mode-run">™</span> Utility Robot
+            </h1>
+<p class="font-headline-sm text-headline-sm text-primary font-medium">
+              Journey Agile Guiding — Utility Robot
+            </p>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            Engineered for high-tempo all-terrain traversing, hazardous infrastructure reconnaissance, and autonomous remote payload intervention. Jag.U.R pairs articulated sub-millimeter leg kinetics with 360° omni-directional perception.
+          </p>
+<!-- Acronym Semantic Bento Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs pt-space-xs">
+<div class="p-space-xs rounded bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-mode-run font-bold block">J // JOURNEY</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Continuous rough terrain transit</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-mode-run font-bold block">A // AGILE</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">18-DOF dynamic torque response</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-mode-run font-bold block">G // GUIDING</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Real-time stereo + LiDAR SLAM</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-mode-run font-bold block">U.R // UTILITY</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Modular dorsal payload interface</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md flex flex-wrap items-center gap-space-sm">
+<a class="px-space-lg py-space-sm rounded bg-mode-run text-canvas-pure font-label-md text-label-md uppercase tracking-wider font-semibold shadow-sm hover:bg-primary transition-all flex items-center gap-2" data-path="contact-labs" href="#">
+<span class="material-symbols-outlined text-[18px]">engineering</span>
+            Request Field Demo
+          </a>
+<button class="px-space-md py-space-sm rounded bg-canvas-pure text-on-surface font-label-md text-label-md uppercase tracking-wider font-semibold shadow-sm hover:bg-canvas-subtle transition-all flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-secondary text-[18px]">download</span>
+            Technical Datasheet PDF
+          </button>
+<a class="px-space-md py-space-sm rounded bg-surface-container text-on-surface-variant font-label-md text-label-md uppercase tracking-wider font-semibold hover:text-mode-run transition-all flex items-center gap-1.5" data-path="documentation" href="#">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+            SDK v4.2
+          </a>
+</div>
+</div>
+<!-- Hero Visual Frame with Sensor Overlay Badge -->
+<div class="lg:col-span-6 relative rounded-xl overflow-hidden bg-canvas-muted min-h-[380px] shadow-sm flex flex-col justify-end p-space-md">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Jag.U.R autonomous quadruped robot dog on an outdoor industrial robotics test facility with gravel, concrete rubble, and industrial pipelines. The robot has matte black and orange chassis with Terra-Mech markings, high torque leg joints, 360-degree LiDAR dome turret on top, dual stereo depth cameras, and rugged rubber contact feet in bright sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjYx-Ymr1S9mCvgQmp8V9Ka0n8BXZmFdnALBnu9p2dh1-z_JhAidPBu7dq4Antie_6jNGliwHVWsh95JjcM20MhWZ5hqz9Q-JNPVFostPkL2YxTomTbwTyjeIA9fqCvCxbAAlkVQk5ceaqf9IG-lesFhv6tLWg1_FyNH40jtlxfpmfq1L3I1sc3RlpQv_R2WFF6bYQnXMpxrT5NP1WC7pV9hGDwqD8hnt4z4WPEyCm"/>
+<!-- Ambient Glass Telemetry Scrim -->
+<div class="relative z-10 bg-canvas-pure/90 backdrop-blur-md p-space-md rounded-lg shadow-sm space-y-space-xs max-w-lg">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-mode-run font-bold">SURFACE RECON // ACTIVE RUN STEPPING</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">FPS: 120 // LATENCY: 2.1ms</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong>Field Session 884-G:</strong> Sub-surface rubble compliance with dual harmonic planetary gearpacks and adaptive neural reflex torque limiter.
+          </p>
+<div class="flex items-center gap-space-md pt-1 text-outline font-label-sm text-label-sm">
+<span>Dorsal Load: 12.4 kg</span>
+<span>Ground Track: Unpaved Rubble</span>
+<span>Heading: 324° NW</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Metric Telemetry Ribbon -->
+<section class="w-full px-gutter md:px-margin py-space-sm">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md">
+<div class="bg-canvas-pure p-space-md rounded-lg shadow-sm">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>TOP SPRINT SPEED</span>
+<span class="material-symbols-outlined text-mode-run text-[18px]">speed</span>
+</div>
+<div class="mt-space-xs flex items-baseline gap-1">
+<span class="font-display-hero text-headline-lg font-bold text-on-surface">4.5</span>
+<span class="font-label-md text-label-md text-on-surface-variant">m/s (16.2 km/h)</span>
+</div>
+<p class="text-body-sm text-body-sm text-on-surface-variant mt-1">Dynamic trotting gait over 35° incline obstacles.</p>
+</div>
+<div class="bg-canvas-pure p-space-md rounded-lg shadow-sm">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>RUN-TIME ENDURANCE</span>
+<span class="material-symbols-outlined text-mode-fly text-[18px]">battery_charging_full</span>
+</div>
+<div class="mt-space-xs flex items-baseline gap-1">
+<span class="font-display-hero text-headline-lg font-bold text-on-surface">2.5</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Hours</span>
+</div>
+<p class="text-body-sm text-body-sm text-on-surface-variant mt-1">Dual hot-swappable LiFePO4 48V packs under full load.</p>
+</div>
+<div class="bg-canvas-pure p-space-md rounded-lg shadow-sm">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>DEGREES OF FREEDOM</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">settings_input_component</span>
+</div>
+<div class="mt-space-xs flex items-baseline gap-1">
+<span class="font-display-hero text-headline-lg font-bold text-on-surface">18</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Active DOF</span>
+</div>
+<p class="text-body-sm text-body-sm text-on-surface-variant mt-1">12 leg joint actuators + 6 dorsal gimbal manipulator points.</p>
+</div>
+<div class="bg-canvas-pure p-space-md rounded-lg shadow-sm">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>ENVIRONMENT RATING</span>
+<span class="material-symbols-outlined text-signal-success text-[18px]">water_drop</span>
+</div>
+<div class="mt-space-xs flex items-baseline gap-1">
+<span class="font-display-hero text-headline-lg font-bold text-on-surface">IP67</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Submersible</span>
+</div>
+<p class="text-body-sm text-body-sm text-on-surface-variant mt-1">Sub-micron hermetic seals against salt fog, jet spray, and silt.</p>
+</div>
+</div>
+</section>
+<!-- Core Capabilities Architectural Triad -->
+<section class="w-full px-gutter md:px-margin py-space-lg">
+<div class="space-y-space-xs mb-space-lg">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-mode-run"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline">Tri-Pillar Kinetic Framework</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Core Capabilities Breakdown</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        Designed for resilient mechanical execution in environments where wheeled access fails and tracked rovers become high-drag liabilities.
+      </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Pillar 1: RUN & Traverse -->
+<div class="bg-canvas-pure rounded-xl p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="px-space-sm py-0.5 rounded bg-mode-run/10 text-mode-run font-label-sm text-label-sm font-semibold">
+              CAPABILITY 01 // KINEMATICS
+            </span>
+<span class="material-symbols-outlined text-mode-run">directions_run</span>
+</div>
+<div class="space-y-space-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface">RUN & Traverse</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              High-torque brushless servo actuators combined with millisecond-grade impedance control ensure rapid balance recovery and zero-lag foot placement.
+            </p>
+</div>
+<ul class="space-y-space-xs text-body-sm text-body-sm text-on-surface">
+<li class="flex items-start gap-space-xs p-space-xs rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-mode-run text-[18px]">check_circle</span>
+<span><strong>Dynamic Gait Stabilization:</strong> Instant transition between bounding, trotting, and crawl walking over shifting gravel and collapsed concrete.</span>
+</li>
+<li class="flex items-start gap-space-xs p-space-xs rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-mode-run text-[18px]">check_circle</span>
+<span><strong>Stair & Steep Grade Ascent:</strong> Ascends standard 38° metal grate industrial stairs and vertical curb drops up to 32cm without human tether.</span>
+</li>
+<li class="flex items-start gap-space-xs p-space-xs rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-mode-run text-[18px]">check_circle</span>
+<span><strong>Harmonic Planetary Gearheads:</strong> Sub-arcminute backlash for responsive proprioceptive force reflection at every foot contact.</span>
+</li>
+</ul>
+</div>
+<div class="p-space-sm rounded bg-canvas-muted text-on-surface font-label-sm text-label-sm flex items-center justify-between">
+<span>MAX RUNNING TORQUE</span>
+<span class="font-bold text-mode-run">120 Nm / Joint</span>
+</div>
+</div>
+<!-- Pillar 2: GUIDE & Sense -->
+<div class="bg-canvas-pure rounded-xl p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="px-space-sm py-0.5 rounded bg-mode-fly/10 text-mode-fly font-label-sm text-label-sm font-semibold">
+              CAPABILITY 02 // COGNITION
+            </span>
+<span class="material-symbols-outlined text-mode-fly">radar</span>
+</div>
+<div class="space-y-space-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface">GUIDE & Sense</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Comprehensive 360° situational perception enabling full autonomy without constant GPS reliance, GNSS jamming immunity, and tactical target escorting.
+            </p>
+</div>
+<ul class="space-y-space-xs text-body-sm text-body-sm text-on-surface">
+<li class="flex items-start gap-space-xs p-space-xs rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-mode-fly text-[18px]">check_circle</span>
+<span><strong>360° Solid-State LiDAR Dome:</strong> Generates 1.2M points/second with 120-meter range for dense 3D point-cloud mesh reconstruction.</span>
+</li>
+<li class="flex items-start gap-space-xs p-space-xs rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-mode-fly text-[18px]">check_circle</span>
+<span><strong>Stereo Depth + Thermal Vision:</strong> Forward and rear stereoscopic RGB-D paired with FLIR thermal sensor for zero-light obstacle recognition.</span>
+</li>
+<li class="flex items-start gap-space-xs p-space-xs rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-mode-fly text-[18px]">check_circle</span>
+<span><strong>Autonomous Waypoint Guiding:</strong> Sub-centimeter SLAM path generation with dynamic person-following and hazard standoff modes.</span>
+</li>
+</ul>
+</div>
+<div class="p-space-sm rounded bg-canvas-muted text-on-surface font-label-sm text-label-sm flex items-center justify-between">
+<span>PERCEPTION LATENCY</span>
+<span class="font-bold text-mode-fly">0.45 ms SLAM Refresh</span>
+</div>
+</div>
+<!-- Pillar 3: UTILITY & Payload -->
+<div class="bg-canvas-pure rounded-xl p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="px-space-sm py-0.5 rounded bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">
+              CAPABILITY 03 // PAYLOAD
+            </span>
+<span class="material-symbols-outlined text-secondary">handyman</span>
+</div>
+<div class="space-y-space-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface">UTILITY & Payload</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Quick-release mechanical NATO rails coupled with CAN-FD and Gigabit Ethernet bus architecture turn the chassis into an adaptable field workstation.
+            </p>
+</div>
+<ul class="space-y-space-xs text-body-sm text-body-sm text-on-surface">
+<li class="flex items-start gap-space-xs p-space-xs rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+<span><strong>Dorsal Rail Bus Interface:</strong> Standardized mounting bracket accepts up to 15 kg payload without sacrificing active balance dynamics.</span>
+</li>
+<li class="flex items-start gap-space-xs p-space-xs rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+<span><strong>Robotic Manipulator Arm:</strong> Optional 6-DOF dexterous arm with magnetic gripper and torque feedback for valve turning and debris extraction.</span>
+</li>
+<li class="flex items-start gap-space-xs p-space-xs rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+<span><strong>Auxiliary Sensor Packs:</strong> Integrated multi-gas sniffers, gamma radiation dosimeters, and acoustical leak detection payloads.</span>
+</li>
+</ul>
+</div>
+<div class="p-space-sm rounded bg-canvas-muted text-on-surface font-label-sm text-label-sm flex items-center justify-between">
+<span>MAX PAYLOAD RUN CAPACITY</span>
+<span class="font-bold text-secondary">15.0 kg Active Load</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Telemetry & Kinematics Control Simulator -->
+<section class="w-full px-gutter md:px-margin py-space-lg">
+<div class="bg-canvas-pure rounded-xl p-space-lg shadow-sm">
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between pb-space-md gap-space-sm">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-high text-mode-run font-bold">LIVE TELEMETRY LAB</span>
+<span class="text-outline font-label-sm text-label-sm">EMULATOR v4.28</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">Jag.U.R Kinematic & Payload Profiler</h3>
+</div>
+<div class="flex items-center gap-space-xs bg-canvas-muted p-1 rounded-lg">
+<button class="px-space-md py-1 rounded bg-canvas-pure text-on-surface text-label-sm font-label-sm font-semibold shadow-sm transition-all" id="mode-recon">RECON SCOUT</button>
+<button class="px-space-md py-1 rounded text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm font-semibold transition-all" id="mode-heavy">HEAVY UTILITY</button>
+<button class="px-space-md py-1 rounded text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm font-semibold transition-all" id="mode-sprint">EXTREME SPRINT</button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center pt-space-xs">
+<!-- Visual Status & SVG Joint Load Graph -->
+<div class="lg:col-span-7 bg-surface-container-low rounded-lg p-space-md space-y-space-md">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-semibold flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-signal-success animate-pulse"></span>
+              REAL-TIME QUADRUPED PROPRIOCEPTION
+            </span>
+<span class="text-outline">CYCLE RATE: 500 Hz</span>
+</div>
+<!-- SVG Kinematic Joint Waveform Graph -->
+<div class="w-full h-44 bg-canvas-pure rounded p-space-sm flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>JOINT TORQUE VARIATION (Nm / RAD)</span>
+<span class="text-mode-run font-bold" id="profile-indicator">MODE: RECON SCOUT (LOW DORSAL LOAD)</span>
+</div>
+<svg class="w-full h-24 text-mode-run overflow-visible" fill="none" viewbox="0 0 500 100">
+<!-- Grid hairlines -->
+<path d="M0 25 H500 M0 50 H500 M0 75 H500" stroke="#E2E8F0" stroke-dasharray="4 4" stroke-width="1"></path>
+<!-- Sine Wave 1 (Front Left & Rear Right Kinematics) -->
+<path d="M0,50 Q40,10 80,50 T160,50 T240,50 T320,50 T400,50 T480,50 T500,50" fill="none" id="wave-primary" stroke="currentColor" stroke-width="2.5"></path>
+<!-- Sine Wave 2 (Secondary Phase for Diagonal Gait) -->
+<path d="M0,50 Q40,90 80,50 T160,50 T240,50 T320,50 T400,50 T480,50 T500,50" fill="none" id="wave-secondary" opacity="0.6" stroke="#2563EB" stroke-dasharray="2 2" stroke-width="1.5"></path>
+</svg>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>0.0s (Stance)</span>
+<span>0.25s (Lift Phase)</span>
+<span>0.5s (Ground Impact)</span>
+<span>0.75s (Stance Repeat)</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-space-sm">
+<div class="bg-canvas-pure p-space-xs rounded shadow-sm">
+<span class="font-label-sm text-label-sm text-outline block">FRONT KNEE TORQUE</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold" id="val-torque">48.2 <span class="text-label-sm text-outline">Nm</span></span>
+</div>
+<div class="bg-canvas-pure p-space-xs rounded shadow-sm">
+<span class="font-label-sm text-label-sm text-outline block">ESTIMATED RUNTIME</span>
+<span class="font-headline-sm text-headline-sm text-mode-fly font-bold" id="val-runtime">2.6 <span class="text-label-sm text-outline">Hours</span></span>
+</div>
+<div class="bg-canvas-pure p-space-xs rounded shadow-sm">
+<span class="font-label-sm text-label-sm text-outline block">PAYLOAD CAPACITY</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold" id="val-payload">6.5 <span class="text-label-sm text-outline">kg</span></span>
+</div>
+</div>
+</div>
+<!-- Telemetry Controls & Subsystem Diagnostics -->
+<div class="lg:col-span-5 space-y-space-md">
+<div class="space-y-space-xs">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Subsystem Health Vector</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Every leg is independently monitored for temperature, back-EMF, and harmonic strain.
+            </p>
+</div>
+<div class="space-y-space-xs">
+<div class="p-space-xs bg-canvas-muted rounded flex items-center justify-between text-body-sm">
+<span class="font-label-md text-label-md text-on-surface">FL (Front Left) Leg Actuation</span>
+<span class="font-label-sm text-label-sm text-signal-success font-bold">NOMINAL // 42°C</span>
+</div>
+<div class="p-space-xs bg-canvas-muted rounded flex items-center justify-between text-body-sm">
+<span class="font-label-md text-label-md text-on-surface">FR (Front Right) Leg Actuation</span>
+<span class="font-label-sm text-label-sm text-signal-success font-bold">NOMINAL // 43°C</span>
+</div>
+<div class="p-space-xs bg-canvas-muted rounded flex items-center justify-between text-body-sm">
+<span class="font-label-md text-label-md text-on-surface">RL (Rear Left) Leg Actuation</span>
+<span class="font-label-sm text-label-sm text-signal-success font-bold">NOMINAL // 46°C</span>
+</div>
+<div class="p-space-xs bg-canvas-muted rounded flex items-center justify-between text-body-sm">
+<span class="font-label-md text-label-md text-on-surface">RR (Rear Right) Leg Actuation</span>
+<span class="font-label-sm text-label-sm text-signal-success font-bold">NOMINAL // 45°C</span>
+</div>
+<div class="p-space-xs bg-canvas-muted rounded flex items-center justify-between text-body-sm">
+<span class="font-label-md text-label-md text-on-surface">LiDAR Solid-State Sweep</span>
+<span class="font-label-sm text-label-sm text-mode-run font-bold">SYNC 2400 RPM</span>
+</div>
+</div>
+<div class="p-space-sm rounded bg-surface-container-high text-on-surface-variant text-body-sm space-y-1">
+<div class="font-label-sm text-label-sm font-bold text-mode-run uppercase">Operator Feedback Note</div>
+<p>Adaptive terrain estimator switched leg compliance parameters from tarmac hard-deck to loose gravel dispersion profile in under 14 milliseconds.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Operational Scenarios Mosaic -->
+<section class="w-full px-gutter md:px-margin py-space-lg">
+<div class="space-y-space-xs mb-space-lg">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline">Industrial Deployments</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Extreme Operational Scenarios</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        Autonomous field robotics engineered to eliminate human presence in hazardous chemical, thermal, and remote hostile environments.
+      </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Scenario 1: Perimeter Security -->
+<div class="bg-canvas-pure rounded-xl overflow-hidden shadow-sm flex flex-col justify-between">
+<div class="h-44 w-full relative">
+<img class="w-full h-full object-cover" data-alt="Quadruped robotic security dog performing automated night patrol in an industrial perimeter substation with perimeter security fencing, bright high-mast sodium vapor floodlights, and concrete barriers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCx6CisGNugPYPTUIeTp9VNvqpPH4IhhnoWpz7AzOPiyUS2G-kAYjXG4L6ZlRZkSm0ZkJ2l8XHgL71I0So-8NuyW3e1uQeaxuqR3R0pDvNAsKC9tyGqjuMdCM8SPM-ok5m5Atz_BUoI_4-Wj5fk76qqCF97zvMapxwEDOfC1p7RpjLOBd6PUcYkqVlqMOOkaeBubu6wWlwv8SIlkZsPzCJSZSj9yfB0qpQXxizyI-r"/>
+<span class="absolute top-2 right-2 px-space-xs py-0.5 rounded bg-canvas-pure/90 backdrop-blur-md text-on-surface font-label-sm text-label-sm font-bold">
+            SCENARIO // 01
+          </span>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-sm">
+<div class="space-y-space-xs">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Perimeter Security & Escort</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Scheduled autonomous routes along perimeter fences with optical zoom cameras, perimeter breach tracking, and bidirectional speaker siren broadcast.
+            </p>
+</div>
+<div class="font-label-sm text-label-sm text-mode-run font-semibold">
+            > 24/7 UNATTENDED PATROLS
+          </div>
+</div>
+</div>
+<!-- Scenario 2: Hazardous Industrial Inspection -->
+<div class="bg-canvas-pure rounded-xl overflow-hidden shadow-sm flex flex-col justify-between">
+<div class="h-44 w-full relative">
+<img class="w-full h-full object-cover" data-alt="Jag.U.R quadruped robot dog with optical thermal camera inspecting steam pipe valves, petrochemical refineries, and high pressure chemical tanks with steam escaping." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUZCXTjVrklqBtjyLq2lQ4Mk_7C-Ie4zaRVKkKuQu3Q-0PiuWg_K0Rvlg7FsMdMHaFFCOiLHVlGTeeSpCIsNp9AH6C1z4FjQfo3XV00pcCjRd8ZaXUxWOC2eLCUT_fZ8zb5BNzinJvVB9TbwLFWaTUHlMMnNda5pFqUn-v_4Hw2bCcQeDK-M51A5W_vjpyAGFDzS9WT4PHi9zARk00BbEbfMOm-2ldCYcLBsN4DHHk"/>
+<span class="absolute top-2 right-2 px-space-xs py-0.5 rounded bg-canvas-pure/90 backdrop-blur-md text-on-surface font-label-sm text-label-sm font-bold">
+            SCENARIO // 02
+          </span>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-sm">
+<div class="space-y-space-xs">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Hazardous Inspection</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Detects hydrocarbon leaks, acoustic steam anomalies, and overheated electrical transformers across petrochemical plants and toxic processing halls.
+            </p>
+</div>
+<div class="font-label-sm text-label-sm text-signal-alert font-semibold">
+            > ZERO PERSONNEL EXPOSURE
+          </div>
+</div>
+</div>
+<!-- Scenario 3: Automated Search & Survey -->
+<div class="bg-canvas-pure rounded-xl overflow-hidden shadow-sm flex flex-col justify-between">
+<div class="h-44 w-full relative">
+<img class="w-full h-full object-cover" data-alt="Articulated quadruped robot walking over collapsed masonry building debris and broken steel beams during an urban search and disaster response drill." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6wQRT3yXeESGy0JXHkR3X5TnzB3suTB8wCzb3gHPp3SVZ7HP38XztlmVn5VYLPzlp5dKcbrD8YO4ZyBJvvD6uHm4GjtCkagVHZwBuZrJ9o1yI5_EPkQ_9-UpeY7A7P-3U4Tv6oAspF1s1LOzTAxpGGtu8PGy_FYaN-YE0dHBB2CGx4Vr3C9x_GYknw_1Z_XjEwL44uodBfJtKoh3fw_NHu_9MR60lPVubeE4pQItg"/>
+<span class="absolute top-2 right-2 px-space-xs py-0.5 rounded bg-canvas-pure/90 backdrop-blur-md text-on-surface font-label-sm text-label-sm font-bold">
+            SCENARIO // 03
+          </span>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-sm">
+<div class="space-y-space-xs">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Search & Rapid Survey</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Traverses seismic disaster zones, collapsed structural wreckage, and underground mining conduits to locate trapped survivors and map voids.
+            </p>
+</div>
+<div class="font-label-sm text-label-sm text-mode-fly font-semibold">
+            > 3D COLLAPSE MESHING
+          </div>
+</div>
+</div>
+<!-- Scenario 4: Construction Monitoring -->
+<div class="bg-canvas-pure rounded-xl overflow-hidden shadow-sm flex flex-col justify-between">
+<div class="h-44 w-full relative">
+<img class="w-full h-full object-cover" data-alt="Autonomous quadruped robot walking through an active multi-story commercial high-rise construction site with rebar, concrete forms, and construction workers in distance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAmsfZGpOfi42PwJ7yALKRdXcYjC6wURQjKy_eG7euEEpwi7LvE1iTPfm8yEtpSEC1XORQtKxOwHODdo6KtYPOEc5SP5NQvzHfq9Ztu8zHsZjbBTdR1tTuFyiX-bHXOURqA3YQ8dsfSs9jlFVwF5bEDBLjSPMcr4BnJK5bupHCkv1jUKmJCRSymekXTQyqM1kg3ss_-tT_lNjpLKDHRckx-pPsTFcwfopeeem4RWep"/>
+<span class="absolute top-2 right-2 px-space-xs py-0.5 rounded bg-canvas-pure/90 backdrop-blur-md text-on-surface font-label-sm text-label-sm font-bold">
+            SCENARIO // 04
+          </span>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-sm">
+<div class="space-y-space-xs">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">BIM Site Progress Audit</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Daily autonomous walks comparing as-built laser scans directly against Building Information Modeling (BIM) digital twins to flag install clashes.
+            </p>
+</div>
+<div class="font-label-sm text-label-sm text-secondary font-semibold">
+            > REVIT & IFC COMPLIANT
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Medium Article Deep Dive Feature Bento -->
+<section class="w-full px-gutter md:px-margin py-space-lg">
+<div class="bg-surface-container-high rounded-xl p-space-lg shadow-sm">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-8 space-y-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-0.5 rounded bg-canvas-pure text-on-surface font-label-sm text-label-sm font-bold">
+              MEDIUM TECHNICAL MONOGRAPH
+            </span>
+<span class="text-outline font-label-sm text-label-sm">BY ZOEWAVE RESEARCH</span>
+<span class="text-outline font-label-sm text-label-sm">• 8 MIN READ</span>
+</div>
+<div class="space-y-space-xs">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">
+              Jag.U.R™ Utility Robot: Journey Agile Guiding Utility Robot
+            </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+              An architectural breakdown of the torque-controlled kinematics, closed-loop neural balance manifolds, and ROS2 hardware abstraction layer powering the Jag.U.R autonomous quadruped platform.
+            </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
+<div class="bg-canvas-pure p-space-sm rounded shadow-sm">
+<span class="font-label-sm text-label-sm text-mode-run font-bold block mb-1">PART 01 // KINEMATICS</span>
+<p class="font-body-sm text-body-sm text-on-surface">Eliminating mechanical gearbox backlash using dual cycloidal planetary reducers with sub-0.1ms torque correction.</p>
+</div>
+<div class="bg-canvas-pure p-space-sm rounded shadow-sm">
+<span class="font-label-sm text-label-sm text-mode-fly font-bold block mb-1">PART 02 // NEURAL SLAM</span>
+<p class="font-body-sm text-body-sm text-on-surface">Deploying local DeepSeek and TensorFlow Lite models on Edge TPU for zero-cloud waypoint inference.</p>
+</div>
+</div>
+<div class="pt-space-xs flex flex-wrap items-center gap-space-sm">
+<a class="px-space-lg py-space-sm rounded bg-on-surface text-canvas-pure font-label-md text-label-md uppercase tracking-wider font-semibold shadow-sm hover:bg-primary transition-all flex items-center gap-2" href="https://zoewave.medium.com/jag-u-r-utility-robot-d6045e215b20" rel="noopener noreferrer" target="_blank">
+<span>Read Full Article on Medium</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+<span class="text-outline font-label-sm text-label-sm">Originally published by ZoeWave // ZoeRobo Labs</span>
+</div>
+</div>
+<div class="lg:col-span-4 bg-canvas-pure p-space-md rounded-lg shadow-sm space-y-space-sm">
+<div class="font-label-sm text-label-sm uppercase text-outline font-semibold">Article Key Takeaways</div>
+<div class="space-y-space-xs text-body-sm text-body-sm text-on-surface">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-signal-success text-[18px]">verified</span>
+<span><strong>Linear Foot Contact Force:</strong> 450N continuous peak impact resistance per carbon-fiber limb.</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-signal-success text-[18px]">verified</span>
+<span><strong>Sub-Millimeter Odometry:</strong> Drift bounded under 0.05% over 10km unmapped traverses.</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-signal-success text-[18px]">verified</span>
+<span><strong>Unified Protocol:</strong> Direct ROS2 Galactic / Humble native node telemetry bindings.</span>
+</div>
+</div>
+<div class="p-space-xs bg-canvas-muted rounded text-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">SHA256: 4f98e21...8bca310</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Complete Engineering Specifications Data Grid -->
+<section class="w-full px-gutter md:px-margin py-space-lg">
+<div class="space-y-space-xs mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline">HARDWARE ARCHITECTURE</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Full Engineering Specifications</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        Architectural parameters verified through empirical testing at the Outdoor Robotics Testing Facility.
+      </p>
+</div>
+<div class="bg-canvas-pure rounded-xl shadow-sm overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-sm px-space-md">Subsystem Component</th>
+<th class="py-space-sm px-space-md">Engineering Metric</th>
+<th class="py-space-sm px-space-md">Tolerances & Protocols</th>
+<th class="py-space-sm px-space-md text-right">Verification Status</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-body-sm text-body-sm text-on-surface">
+<tr class="hover:bg-canvas-subtle transition-colors">
+<td class="py-space-sm px-space-md font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-mode-run text-[18px]">adjust</span>
+              Kinematic Mobility System
+            </td>
+<td class="py-space-sm px-space-md">4 Articulated legs, 18 Degrees of Freedom</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">Harmonic drive reduction 1:30, 120 Nm torque max</td>
+<td class="py-space-sm px-space-md text-right font-label-sm text-label-sm text-signal-success font-bold">CERTIFIED</td>
+</tr>
+<tr class="hover:bg-canvas-subtle transition-colors">
+<td class="py-space-sm px-space-md font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-mode-run text-[18px]">speed</span>
+              Maximum Traverse Velocity
+            </td>
+<td class="py-space-sm px-space-md">4.5 m/s (16.2 km/h) Sprint Trotting</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">Zero-skid dynamic surface compensation</td>
+<td class="py-space-sm px-space-md text-right font-label-sm text-label-sm text-signal-success font-bold">BENCHMARKED</td>
+</tr>
+<tr class="hover:bg-canvas-subtle transition-colors">
+<td class="py-space-sm px-space-md font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">battery_saver</span>
+              Power & Energy Storage
+            </td>
+<td class="py-space-sm px-space-md">2.5 Hours Continuous / Hot-Swap 48V LiFePO4</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">Dual 980Wh modules, 15-minute quick-dock replenishment</td>
+<td class="py-space-sm px-space-md text-right font-label-sm text-label-sm text-signal-success font-bold">NOMINAL</td>
+</tr>
+<tr class="hover:bg-canvas-subtle transition-colors">
+<td class="py-space-sm px-space-md font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-mode-fly text-[18px]">visibility</span>
+              Perception & LiDAR Core
+            </td>
+<td class="py-space-sm px-space-md">360° Solid State LiDAR + Dual Stereo 4K RGB-D</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">120m range, 0.45ms SLAM odometry cycle</td>
+<td class="py-space-sm px-space-md text-right font-label-sm text-label-sm text-signal-success font-bold">ACTIVE</td>
+</tr>
+<tr class="hover:bg-canvas-subtle transition-colors">
+<td class="py-space-sm px-space-md font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">memory</span>
+              Edge Compute & AI Engine
+            </td>
+<td class="py-space-sm px-space-md">Dual Edge TPU Neural Coprocessors (275 TOPS)</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">DeepSeek LLM + TF Lite INT8 kinematic inference</td>
+<td class="py-space-sm px-space-md text-right font-label-sm text-label-sm text-signal-success font-bold">ONLINE</td>
+</tr>
+<tr class="hover:bg-canvas-subtle transition-colors">
+<td class="py-space-sm px-space-md font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">lan</span>
+              Connectivity & Interfaces
+            </td>
+<td class="py-space-sm px-space-md">Gigabit Ethernet, Dual CAN-FD, Private 5G / LTE-M</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">NATO standard dorsal rails with 24V aux power tap</td>
+<td class="py-space-sm px-space-md text-right font-label-sm text-label-sm text-signal-success font-bold">COMPLIANT</td>
+</tr>
+<tr class="hover:bg-canvas-subtle transition-colors">
+<td class="py-space-sm px-space-md font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-signal-warning text-[18px]">shield</span>
+              Chassis Ruggedization
+            </td>
+<td class="py-space-sm px-space-md">IP67 Submersible / MIL-STD-810H Drop & Vibe</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">Operating temp range: -20°C to +55°C</td>
+<td class="py-space-sm px-space-md text-right font-label-sm text-label-sm text-signal-success font-bold">PASSED</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Bottom Conversion Callout Bento -->
+<section class="w-full px-gutter md:px-margin pt-space-md pb-space-xl">
+<div class="bg-surface-container-high rounded-xl p-space-lg md:p-space-xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<div class="space-y-space-xs max-w-xl">
+<span class="px-space-sm py-0.5 rounded bg-mode-run text-canvas-pure font-label-sm text-label-sm uppercase tracking-wider font-bold">
+          DEPLOYMENT READY
+        </span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Equip Your Team with Jag.U.R</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Book an on-site autonomous mission verification with our field engineering robotics unit, or receive developer SDK documentation and ROS2 URDF packages.
+        </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-space-sm w-full md:w-auto">
+<a class="w-full sm:w-auto px-space-lg py-space-sm rounded bg-mode-run text-canvas-pure font-label-md text-label-md uppercase tracking-wider font-semibold text-center hover:bg-primary shadow-sm transition-all" data-path="contact-labs" href="#">
+          Request Field Evaluation
+        </a>
+<a class="w-full sm:w-auto px-space-lg py-space-sm rounded bg-canvas-pure text-on-surface font-label-md text-label-md uppercase tracking-wider font-semibold text-center hover:bg-canvas-subtle shadow-sm transition-all" data-path="documentation" href="#">
+          Download ROS2 Package
+        </a>
+</div>
+</div>
+</section>
+<!-- Interactive JavaScript for Simulator Widget -->
+<script>
+    (function initJagurSimulator() {
+      const btnRecon = document.getElementById('mode-recon');
+      const btnHeavy = document.getElementById('mode-heavy');
+      const btnSprint = document.getElementById('mode-sprint');
+      
+      const indicator = document.getElementById('profile-indicator');
+      const torque = document.getElementById('val-torque');
+      const runtime = document.getElementById('val-runtime');
+      const payload = document.getElementById('val-payload');
+      const wavePrimary = document.getElementById('wave-primary');
+      const waveSecondary = document.getElementById('wave-secondary');
+
+      if (!btnRecon || !btnHeavy || !btnSprint) return;
+
+      const resetActiveState = () => {
+        [btnRecon, btnHeavy, btnSprint].forEach(btn => {
+          btn.className = "px-space-md py-1 rounded text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm font-semibold transition-all";
+        });
+      };
+
+      const setButtonActive = (btn) => {
+        resetActiveState();
+        btn.className = "px-space-md py-1 rounded bg-canvas-pure text-on-surface text-label-sm font-label-sm font-semibold shadow-sm transition-all";
+      };
+
+      btnRecon.addEventListener('click', () => {
+        setButtonActive(btnRecon);
+        indicator.textContent = "MODE: RECON SCOUT (LOW DORSAL LOAD)";
+        indicator.className = "text-mode-run font-bold";
+        torque.innerHTML = '48.2 <span class="text-label-sm text-outline">Nm</span>';
+        runtime.innerHTML = '2.6 <span class="text-label-sm text-outline">Hours</span>';
+        payload.innerHTML = '6.5 <span class="text-label-sm text-outline">kg</span>';
+        wavePrimary.setAttribute('d', 'M0,50 Q40,10 80,50 T160,50 T240,50 T320,50 T400,50 T480,50 T500,50');
+        wavePrimary.setAttribute('stroke', '#0284C7');
+        waveSecondary.setAttribute('d', 'M0,50 Q40,90 80,50 T160,50 T240,50 T320,50 T400,50 T480,50 T500,50');
+      });
+
+      btnHeavy.addEventListener('click', () => {
+        setButtonActive(btnHeavy);
+        indicator.textContent = "MODE: HEAVY UTILITY (15KG MAX DORSAL)";
+        indicator.className = "text-secondary font-bold";
+        torque.innerHTML = '112.4 <span class="text-label-sm text-outline">Nm</span>';
+        runtime.innerHTML = '1.8 <span class="text-label-sm text-outline">Hours</span>';
+        payload.innerHTML = '15.0 <span class="text-label-sm text-outline">kg</span>';
+        wavePrimary.setAttribute('d', 'M0,50 Q40,2 80,50 T160,50 T240,50 T320,50 T400,50 T480,50 T500,50');
+        wavePrimary.setAttribute('stroke', '#0051d5');
+        waveSecondary.setAttribute('d', 'M0,50 Q40,98 80,50 T160,50 T240,50 T320,50 T400,50 T480,50 T500,50');
+      });
+
+      btnSprint.addEventListener('click', () => {
+        setButtonActive(btnSprint);
+        indicator.textContent = "MODE: EXTREME SPRINT (4.5 M/S HIGH FREQ)";
+        indicator.className = "text-signal-alert font-bold";
+        torque.innerHTML = '89.6 <span class="text-label-sm text-outline">Nm</span>';
+        runtime.innerHTML = '1.2 <span class="text-label-sm text-outline">Hours</span>';
+        payload.innerHTML = '3.0 <span class="text-label-sm text-outline">kg</span>';
+        wavePrimary.setAttribute('d', 'M0,50 Q20,15 40,50 T80,50 T120,50 T160,50 T200,50 T240,50 T280,50 T320,50 T360,50 T400,50 T440,50 T480,50 T500,50');
+        wavePrimary.setAttribute('stroke', '#ba1a1a');
+        waveSecondary.setAttribute('d', 'M0,50 Q20,85 40,50 T80,50 T120,50 T160,50 T200,50 T240,50 T280,50 T320,50 T360,50 T400,50 T480,50 T500,50');
+      });
+    })();
+  </script>
+</div></main><footer class="w-full bg-canvas-subtle mt-space-xl"><div class="w-full px-gutter md:px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter mb-space-xl"><div class="lg:col-span-4 space-y-space-md"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface">ZoeRobo Engineering</span></div><p class="font-headline-md text-headline-md text-primary max-w-sm">We make robots that Run, Drive & Fly.</p><p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">Empirical hardware synthesis for extreme autonomy, kinematic balance, and distributed cybernetic intelligence.</p><div class="flex items-center gap-space-xs pt-space-xs"><span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-mode-run/10 text-mode-run font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-mode-run animate-pulse"></span>RUN</span><span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-mode-drive/10 text-mode-drive font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-mode-drive animate-pulse"></span>DRIVE</span><span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-mode-fly/10 text-mode-fly font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-mode-fly animate-pulse"></span>FLY</span></div></div><div class="lg:col-span-2 space-y-space-sm"><div class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Kinematic Matrix</div><ul class="space-y-space-xs"><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-mode-fly text-[16px]">flight</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-mode-fly transition-colors" data-path="firefly-drone" href="#">FireFly™ Aerial UAS</a></li><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-mode-run text-[16px]">precision_manufacturing</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-mode-run transition-colors" data-path="jag-u-r-robot" href="#">Jag.U.R™ Quadruped</a></li><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-mode-drive text-[16px]">directions_car</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-mode-drive transition-colors" data-path="ai-ml-drive" href="#">AV Ground Drive Platform</a></li><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary text-[16px]">memory</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-tertiary transition-colors" data-path="documentation" href="#">ROS2 / Telematics Stack</a></li></ul></div><div class="lg:col-span-3 space-y-space-sm"><div class="font-label-sm text-label-sm uppercase text-outline tracking-wider">YLabZ Research Core</div><ul class="space-y-space-xs font-label-md text-label-md text-on-surface-variant"><li class="flex items-center justify-between p-space-xs bg-canvas-pure rounded"><span>Edge TPU Neural Pipeline</span><span class="text-signal-success font-label-sm text-label-sm">ACTIVE</span></li><li class="flex items-center justify-between p-space-xs bg-canvas-pure rounded"><span>DeepSeek LLM Local Guidance</span><span class="text-signal-success font-label-sm text-label-sm">0.12ms</span></li><li class="flex items-center justify-between p-space-xs bg-canvas-pure rounded"><span>TensorFlow Lite Kinematics</span><span class="text-on-surface font-label-sm text-label-sm">INT8</span></li><li class="flex items-center justify-between p-space-xs bg-canvas-pure rounded"><span>YLabZ Hardware Telemetry</span><span class="text-primary font-label-sm text-label-sm">v3.8</span></li></ul></div><div class="lg:col-span-3 space-y-space-sm"><div class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Developer Dispatch</div><p class="font-body-sm text-body-sm text-on-surface-variant">Receive direct empirical updates, SDK kernel patches, and ROS2 modules from our field robotics engineers.</p><div class="flex flex-col gap-space-xs"><input class="px-space-md py-space-xs rounded bg-canvas-pure text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:bg-canvas-pure shadow-[0_1px_3px_0_rgba(15,23,42,0.04)]" placeholder="developer@institution.edu" type="email"/><button class="w-full px-space-md py-space-xs rounded bg-secondary text-on-secondary font-label-md text-label-md uppercase tracking-wider hover:bg-secondary-container transition-colors" type="button">Subscribe Feed</button></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md font-label-sm text-label-sm text-outline"><div class="flex items-center gap-space-md"><span>© 2025 ZoeRobo Systems Inc. All hardware and software patents reserved.</span></div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" data-path="info-and-research" href="#">Laboratory Specs</a><a class="hover:text-on-surface transition-colors" data-path="documentation" href="#">API Reference</a><a class="hover:text-on-surface transition-colors" data-path="contact-labs" href="#">Field Deployment</a></div></div></div></footer></body></html>
